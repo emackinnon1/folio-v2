@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import Video from 'next-video';
+import Player from 'next-video/player';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import Quiz from '@/components/content/blog/Quiz';
@@ -27,6 +29,8 @@ const MDXComponents = {
   GithubCard,
   Quiz,
   Carousel,
+  Video,
+  Player,
 };
 
 export default MDXComponents;
