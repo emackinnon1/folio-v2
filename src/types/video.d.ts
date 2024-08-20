@@ -1,5 +1,4 @@
 // Escape hatch for video files in a custom folder with URL params.
-/// <reference types="next-video/video-types/global" />
 declare module '*&next-video' {
   const content: import('../dist/assets').Asset;
 
