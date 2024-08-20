@@ -43,4 +43,4 @@ const nextConfig = {
   // },
 };
 
-module.exports = withRemoteRefresh(nextConfig);
+module.exports = withRemoteRefresh(withNextVideo(nextConfig));
