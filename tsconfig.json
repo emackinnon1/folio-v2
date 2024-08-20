@@ -19,7 +19,7 @@
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/video.d.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "/video.d.ts"],
   "exclude": ["node_modules"],
   "moduleResolution": ["node_modules", ".next", "node"]
 }
