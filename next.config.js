@@ -1,4 +1,5 @@
 const path = require('path');
+const { withNextVideo } = require('next-video/process');
 
 const withRemoteRefresh = require('next-remote-refresh')({
   paths: [path.resolve(__dirname, 'src', 'contents')],
