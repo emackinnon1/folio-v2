@@ -24,7 +24,7 @@ are to Michaelangelo's David.
   width={650}
 />
 
-## Simple rules
+## Complex obscurity for simple rules
 
 One of the passages in the book illumines the experiments of William Grey Walter. Walter set out to prove that simple logical interactions and connections could result in
 rich behaviors, so he built simple robotic tortoises that "behaved" as if they were searching for food, self aware, and had memory and conditionable reflexes. The tortoises
@@ -39,6 +39,14 @@ circuits activating with double the force. However, when the batteries were low,
 light and now enter the kennel (before, the light would engender the repellent response) where a battery charger was located, subsequently recharging and kicking off
 the whole process again.
 
+These behaviors arose mixed signals and feedback in certain circuits and could be boiled down into logical statements. If we take the behavior of the tortoise being
+attracted to light when the batteries were low, it can be represented by (with _BL_ meaning the state of low battery, _LP_ meaning there is a light source present and
+_FL_ standing for "find light", or the the behavior of being attracted to the light):
+
+```
+If BL and LP, then FL
+```
+
 <Img
   mdx
   publicId='/images/blog/wetware/Schematic-of-Grey-Walters-electronic-tortoises-Elsie-and-Elmer-Reproduced-from-Walter.ppm'
@@ -47,12 +55,18 @@ the whole process again.
   width={650}
 />
 
-These tortoises displayed simple, single cell organisms behavior to a degree, but even single cell organisms seem to have rudimentary abilities to "learn by experience"
-patterns. Grey Walter set out to create a new version that could do the same.
+With simple logical rules, these tortoises displayed behavior, to a degree, that single cell organisms might display, but even single cell organisms seem to have rudimentary
+abilities to "learn by experience" patterns. Grey Walter set out to create a new version that could do the same. His next iteration ported a sensor that could detect
+whistles and mixed that signal with the signals from the bump sensor and the light sensor. This new circuit allowed the
+tortoise to be "trained" to come to the whistle as if it were a light. The humble, plain circuit of Walter's tortoises seemed to serve as the platform for rudimentary
+Pavlovian learning, the famous pairing of an unrelated stimulus to a behavior. What the mixing of the signals allowed for is a basic logical _or_ statement (with _W_ representing
+the whistle signal, _L_ representing the presence of a light signal and _B_ representing the subsquent behavior of heading toward the stimulus):
 
-His next iteration ported a sensor that could detect whistles and mixed that signal with the signals from the bump sensor and the light sensor. This new circuit allowed the
-tortoise to be "trained" to come to the whistle as if it were a light. The humble, simple circuit of Walter's tortoises seemed to serve as the platform for rudimentary
-Pavlovian learning.
+```
+If W or L, then B
+```
+
+These simple logical statements are the basis for many aspects of programming and, in Bray's argument, biological phenomena.
 
 <Img
   mdx
@@ -62,7 +76,7 @@ Pavlovian learning.
   width={550}
 />
 
-## Facades of the unicellular world
+## Facades of intelligence in the unicellular world
 
 Some of the most complex behavior in the unicellular realm comes from _Stentor roselii_. _Stentor_ is a trumpet-shaped organism that attaches itself to various surfaces
 via a mucus-covered foot. At rest, its mouth is open and the fine cilia inside beat the water to create a current that pulls in particles in the water. The animal then
@@ -83,7 +97,8 @@ attached itself to. It then uses its mouth for locomotion and explores nearby su
 reform its mucus tube, fit inside of it, and anchor its pseudopodia to the bottom of the inside of the tube. Afterward, it resumes its normal pose: sampling the water and
 beating its cilia to ingest particles in the event they are edible.
 
-All of this is performed by a tiny fluid-filled sac less than a millimeter in length.
+All of this is performed by a tiny fluid-filled sac less than a millimeter in length. These stimuli and behaviors are bound, through physical and chemical interactions, in logically
+renderings similar to the tortoises of William Grey Walter.
 
 ## Chemical logical operators
 
@@ -95,18 +110,20 @@ All of this is performed by a tiny fluid-filled sac less than a millimeter in le
   width={550}
 />
 
-In the same way that Walter's second iteration of tortoises combined logical operations (`whistle present -> light attraction behavior` or `battery low and light present -> 
-strength of attraction to light increases`), allosteric proteins are the platform for cellular computations and logic. Hemoglobin is as good a stepping off point as any: as oxygen
-binds to different sites on a hemoglobin molecule, the neighboring atoms shift slightly to accomodate the new oxygen passenger. This subtly changes the hemoglobin structure
-and other amino acids that make it up are slightly different, meaning their downstream behavior is altered ever so slightly. With a handful of bind sites, this can change a protein's
+In the same way that Walter's second iteration of tortoises combined logical operations (`if whistle present, then light attraction behavior` or `battery low and light present -> 
+strength of attraction to light increases`), allostery is the platform for cellular computations and logic. Hemoglobin is as good a stepping off point as any: as oxygen
+binds to different sites on a hemoglobin molecule, the neighboring atoms shift slightly to accomodate the new oxygen passenger. This subtly changes the hemoglobin structure.
+Other amino acids that make it up are now slightly different, meaning _their_ downstream behavior is altered ever so slightly. With a handful of bind sites, this can change a protein's
 behavior drastically through different combinations of binding.
 
-Allosteric enzyme switches are proteins that change shape when a molecule or atom binds to it, like with our hemoglobin example. As molecule _A_ snaps into place and binds to
-a site on enzyme _X_ specially suited for it. _X_ transforms into a slightly different enzyme with a minutely different structure. It now supports the binding of molecule _B_,
-and when _B_ binds, _X_ changes shape ever so slightly again. In this new structure any _A_ molecules bind and immediately break off, one that no longer supports binding by _A_. Inhibition or disinhibition can be achieved, dictating the logical:
+As molecule _A_ snaps into place and binds to a site on enzyme _X_ specially suited for it, _X_ transforms into a slightly different enzyme with a minutely different
+structure. It now supports the binding of molecule _B_, and when _B_ binds, _X_ changes shape ever so slightly again. When _B_ is allowed to bind to protein _X_, this also
+changes _B_. Maybe it loses some atoms, gains some, or is altered in some other way, but now _B_, upon binding, becomes _B'_ ("B prime"). _B'_ doesn't fit well on _X_'s
+binding site anymore, so it breaks off. This is an allosterica enzyme in action. Inhibition _or_ disinhibition (like our example here) can be achieved, dictating the
+logical:
 
 ```
-If (A)
+If A and B, then B'
 ```
 
 This is the jumping off point to the behavior that Walter's tortoises showed.
