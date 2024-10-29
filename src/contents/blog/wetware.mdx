@@ -1,18 +1,18 @@
 ---
-title: 'Competence without comprehension'
+title: 'Scaling computations scales behavior'
 publishedAt: '2024-10-17'
 lastUpdated: '2024-10-17'
 tags: 'philosophy,cognitive science,biology'
-description: 'Cognition at scale'
+description: 'A brief foray into logical computations of behavior and a few musings about what that might mean at higher and lower level animals'
 banner: '/images/blog/wetware/protein.webp'
 englishOnly: 'true'
 ---
 
 > "The cell moves in an informed if not intelligent way."
 
-In _Wetware_, Dennis Bray walks fine lines of definitial scale. The book is a deep dive into computation biology, sensory signals and organisms' reactions. By his own admission,
+In _Wetware_, Dennis Bray walks fine lines of definitional scale. The book is a deep dive into computation biology, sensory signals and organisms' reactions. By his own admission,
 flits from scope to scope with words like words like "attention", "memory" and "knowledge", whittling at their meanings until they fit into cell behavior (and they do,
-he says). The general thrust of his ideas and arguments are cells and their proteins have are siblings to the digital and analog signals in modern computers, with many
+he says). The general thrust of his ideas and arguments are cells and their proteins are siblings to the digital and analog circuits and signals, with many
 similarities to complex neural networks and computers. Yet, for now at least, silicon-rendered networks on a TPU are to their biological counterparts as my 3 year old nephew's Playdoh people
 are to Michaelangelo's David.
 
@@ -55,12 +55,13 @@ If BL and LP, then FL
   width={650}
 />
 
-With simple logical rules, these tortoises displayed behavior, to a degree, that single cell organisms might display, but even single cell organisms seem to have rudimentary
-abilities to "learn by experience" patterns. Grey Walter set out to create a new version that could do the same. His next iteration ported a sensor that could detect
-whistles and mixed that signal with the signals from the bump sensor and the light sensor. This new circuit allowed the
-tortoise to be "trained" to come to the whistle as if it were a light. The humble, plain circuit of Walter's tortoises seemed to serve as the platform for rudimentary
-Pavlovian learning, the famous pairing of an unrelated stimulus to a behavior. What the mixing of the signals allowed for is a basic logical _or_ statement (with _W_ representing
-the whistle signal, _L_ representing the presence of a light signal and _B_ representing the subsquent behavior of heading toward the stimulus):
+With simple logical rules, these tortoises displayed behavior, to a degree, that single cell organisms (or, arguably, more complex animals) might display, but even
+single cell organisms seem to have rudimentary abilities to associatively learn or "learn by experience". Grey Walter set out to create a new version that could do
+the same. His next iteration ported a sensor's signal that could detect whistles and mixed that signal with the signals from the bump sensor and the light sensor. This new
+circuit allowed the tortoise to be "trained" to come to the whistle as if it were a light. The humble, plain circuit of Walter's tortoises seemed to serve as the
+platform for rudimentary Pavlovian learning, the famous pairing of an unrelated stimulus to a behavior. What the mixing of the mixing of signals allowed for is a basic
+logical _or_ statement (with _W_ representing the whistle signal, _L_ representing the presence of a light signal and _B_ representing the subsquent behavior of
+heading toward the stimulus):
 
 ```
 If W or L, then B
@@ -76,13 +77,13 @@ These simple logical statements are the basis for many aspects of programming an
   width={550}
 />
 
-## Facades of intelligence in the unicellular world
+## Facades of intelligence
 
 Some of the most complex behavior in the unicellular realm comes from _Stentor roselii_. _Stentor_ is a trumpet-shaped organism that attaches itself to various surfaces
 via a mucus-covered foot. At rest, its mouth is open and the fine cilia inside beat the water to create a current that pulls in particles in the water. The animal then
 determines whether the particles are edible and ejects indegistable particles. When water is squirted into the open mouth, the animal contracts into a ball. A second
 squirt of water is ignored by the animal. This "surprise" response was achievable through a host of stimuli, such as jarring the container the animal was in. This, like
-the tortoises, seemed to point to a rudimentary form of "memory" and "learning".
+the tortoises, seemed to point to a rudimentary form of "memory" and associative learning.
 
 When irritants or injurious particles are squirted into the mouth, _Stentor_ will bend to one side (always in the same direction) and move its mouth out of the path of
 the inedible particles. This will be repeated a few times before until a more drastic action is taken: the cilia reverse direction and eject everything in the "mouth" and
@@ -110,36 +111,87 @@ renderings similar to the tortoises of William Grey Walter.
   width={550}
 />
 
-In the same way that Walter's second iteration of tortoises combined logical operations (`if whistle present, then light attraction behavior` or `battery low and light present -> 
+In the same way that Walter's second iteration of tortoises combined logical operations (`if whistle present, then light attraction behavior` or `battery low and light present, then 
 strength of attraction to light increases`), allostery is the platform for cellular computations and logic. Hemoglobin is as good a stepping off point as any: as oxygen
 binds to different sites on a hemoglobin molecule, the neighboring atoms shift slightly to accomodate the new oxygen passenger. This subtly changes the hemoglobin structure.
 Other amino acids that make it up are now slightly different, meaning _their_ downstream behavior is altered ever so slightly. With a handful of bind sites, this can change a protein's
 behavior drastically through different combinations of binding.
 
-As molecule _A_ snaps into place and binds to a site on enzyme _X_ specially suited for it, _X_ transforms into a slightly different enzyme with a minutely different
+As molecule _A_ snaps into place and binds to a site on enzyme _X_ specially suited for it, _X_ transforms into a slightly different shape with a minutely different
 structure. It now supports the binding of molecule _B_, and when _B_ binds, _X_ changes shape ever so slightly again. When _B_ is allowed to bind to protein _X_, this also
 changes _B_. Maybe it loses some atoms, gains some, or is altered in some other way, but now _B_, upon binding, becomes _B'_ ("B prime"). _B'_ doesn't fit well on _X_'s
-binding site anymore, so it breaks off. This is an allosterica enzyme in action. Inhibition _or_ disinhibition (like our example here) can be achieved, dictating the
-logical:
+binding site anymore, so it breaks off. This is an allosteric enzyme in action. Inhibition _or_ disinhibition (like our example here) can be achieved, prescribe the
+logic:
 
 ```
 If A and B, then B'
 ```
 
-This is the jumping off point to the behavior that Walter's tortoises showed.
+<Img
+  mdx
+  publicId='/images/blog/wetware/input-output-proteins.webp'
+  alt='Inputs and outputs'
+  height={400}
+  width={550}
+/>
 
-The mechanics of cell locomotion, ingestion and digestion, reactions to environment and other behaviors are detailed in Bray's book. At that resolution, physics and chemistry
-are one in the same (they arguably are at higher orders of resolution, too). The questions then begged are: at what level do "attention", "memory" or other higher order
-conscious processes resolve? Is there a clear boundary along the way? What starting point exists; no attention, or some attention?
+Herein lies the connection point to the logic driving Walter's tortoises' behavior. It's the connection point to many levels of abstraction of the logic in physical behavior,
+in fact. Many protein interactions constitute logical _or_ statments (if bound here do this, _or_ if bound there do that) and logical _and_ statements. Have you ever
+wondered how bacterial cells lie _E. coli_ know how to turn on their flagella to propel themselves in a distinct direction, namely toward a food source?
 
-Most microorganisms display what in higher order animals is termed "attention". Amoebas actively seek new nutrient-rich environments and "taste" what is in front of them
-to gauge the best direction to persue food. While engaged in this search, other normally immediate response-inducing stimuli like temperature or chemical signals are ignored
-(attention probably has its contraints at this level of complexity, as it is likely impossible for a cell to react to two distinct stimuli at once). Pick another trait or
-conscious behavior, they all have a scaling problem. Attention has its roots in consciousness, because we first discovered the phenomenon in ourselves and other
-seemingly-conscious animals but it oozes down into the lower depths of the animal kingdom, waning in definitional complexity, yet seemingly still present in shallower forms.
+Attached to the membrane of the _E. coli_ are outward facing receptors made of proteins with inward-facing structures, also made of proteins. These outward-facing receptors detect chemicals of interest
+and at a rate that depends on the external stimuli, adds phosphate to another protein (CheY, which becomse CheYp with the phosphate attached) inside the cell via the
+internal-facing structures on the inside of the membrane. Once this protein is loaded with phosphate, it diffuses through the cytoplasm and lands on the internal
+structures attached to the base of the flagella. Through a cascade of shape changes, influxes of ions and protein interactions, the binding of the CheYp to the internal base of the motor drives changes in connection
+and shape in other parts of the motor and flagella, generating movement.
 
-We ponder these questions with the luxury of the 21st century. Science is far from completely understanding the entire subject, but there is at least agreement on cells not displaying
-consciousness and "attention" in the same way that a person might. We understand enough about cellular processes to know what logical processes are derived
+It's worth a look at an [explanation](https://www.youtube.com/watch?v=9nZYlyFGm50&ab_channel=XVIVOScientificAnimation)
+of the flagella movement or an [animation](https://www.youtube.com/watch?v=dYt5135_0bs&ab_channel=SmartBiology) of the protein motors to appreciate just how insanely
+complex these structures are and mechanisms are. These are all, in turn, driven by their own logic.
+
+```
+If chemical of interest present, then bind to receptor and "activate" through allostery.
+If receptor activated, then internal kinase and CheY are combined to make CheYp.
+If CheYp present, then bind to motor.
+...
+...
+```
+
+These are the physical "lines of code" driving the sophisticated behavior of cells. They are just as bound to the physical as lines of real code in software are ultimately
+bound to the transistors and circuits that make it up. There is another "block of code" in the receptor that performs calculus on the rate of change of environmental stimuli,
+essentially performing calculus to determine if the rate of change is up or down.
+
+<Img
+  mdx
+  publicId='/images/blog/wetware/flagella-motors.webp'
+  alt='Stentor behavior'
+  height={400}
+  width={550}
+/>{' '}
+
+The mechanics of cell locomotion, ingestion and digestion, signal sensing, reactions to environment and other behaviors are traversed in much greater detail in Bray's book.
+In a cell's universe, physics and chemistry are one in the same (they arguably are at higher orders of resolution, too) and they constitute the mechanical, logical movement
+and communication networks of our arms, muscles, nervous system, hormonal signals and processing, and other similar systems. When the systems described work in conjunction
+with each other, fuzzy forms of concepts like "attention" and "memory" and "learning" resolve. The existence of these denote abstractions of different
+aspects of the world; each of your cells has, embedded in it, a constellation of worldly chemical and physical meaning. Much like our own neurological structures
+perform classifications and abstractions, Bray has pointed out that the logical processes are remarkably consistent on down to these most minute of resolutions (even
+some of the proteins are consistent; actin and myosin are used in the logic of flagellar locomotion and in our own muscle cells).
+
+Most microorganisms display what in higher order animals is termed "attention". As illustrated, _E. coli_, among other organisms, actively seek new nutrient-rich
+environments and "taste" what is in front of them to gauge the best direction to persue food. While engaged in this search, they narrow their attention; other normally
+immediate response-inducing stimuli like temperature or chemical signals are ignored (attention probably has its contraints at this level of complexity, as it is likely
+impossible for a cell to react to two distinct stimuli at once). Attention has its roots in human consciousness; we first discovered and described the phenomenon in
+ourselves and other seemingly-conscious animals. Yet, from our place in the upper echolons of conscious powers "attention" oozes down into the lower depths of the
+animal kingdom, waning in definitional complexity, yet seemingly still present in shallower forms.
+
+At some point in the gradient of complexity, we remove ourselves from hard-coded logic and build our own. We are not chained to infinite clock cycles of the same logic like
+the wasp
+
+At what level does something like "attention" resolve? Is there a clear boundary along the way? What starting point exists; no attention, or some attention? We ponder
+these questions with the luxury of the 21st century. Science is far from completely understanding the entire subject, but there is at least agreement on cells not
+displaying consciousness and "attention" in the same way that a person might. The wonderfully consistent thing that Bray points out in his book is that the logic of behavior and rules
+at higher levels (`if optic nerve signal present, then process image and recall name from memory`),
+exist deep down into the microscopic world, stemming from physical properties of proteins. We understand enough about cellular processes to know what logical processes are derived
 from interactions of proteins. Allosteric properties of proteins were
 Despite lacking necessary substrates of nerve cells, neurotransmitters, and brains that process
 incoming environmental signals, build memories, complex thought and morph responses and behaviors, microorganisms, through the mediums of viscous chemical soups,
