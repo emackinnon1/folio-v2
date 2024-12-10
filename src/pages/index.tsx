@@ -51,7 +51,7 @@ export default function IndexPage({
               </h2>
               <h3
                 // className='mt-2 ml-20 max-w-4xl text-sm text-[#1da1f2] leading-relaxed text-gray-700 dark:text-gray-200 md:mt-3 md:text-base 2xl:text-lg'
-                className='mt-3 ml-20'
+                className='mt-3 ml-20 overflow-hidden'
                 data-fade='2'
               >
                 Full-time Engineer | Rest-Of-The-Time Tinkerer
