@@ -20,20 +20,32 @@ link: 'https://github.com/emackinnon1/lilygo-bump-GPS'
 
 ## Explanation of project
 
-The previous [iteration of this project](/projects/motion-sensor) was bound to distances of less than 1 KM because the HC-12, while extremely useful for sending simple,
-low bitrate serial data, was not going to allow me to know if someone bumped into my motorcycle while parked somewhere that wasn't within the range. This Lilygo T-Sim7000g
-module gives the functionality of an ESP32 with a SIM7000G chip, allowing you to make requests over mobile networks. More info about the pinouts and details can be found
-in articles like [these](https://randomnerdtutorials.com/lilygo-t-sim7000g-esp32-lte-gprs-gps/). I used mine with an MPU6050 to allow for a notification to be sent to my phone from home assistant when my motorcycle is bumped while out and about.
+The previous [iteration of this project](/projects/motion-sensor) was bound to
+distances of less than 1 KM because the HC-12, while extremely useful for
+sending simple, low bitrate serial data, was not going to allow me to know if
+someone bumped into my motorcycle while parked somewhere that wasn't within the
+range. This Lilygo T-Sim7000g module gives the functionality of an ESP32 with a
+SIM7000G chip, allowing you to make requests over mobile networks. More info
+about the pinouts and details can be found in articles like
+[these](https://randomnerdtutorials.com/lilygo-t-sim7000g-esp32-lte-gprs-gps/).
+I used mine with an MPU6050 to allow for a notification to be sent to my phone
+from home assistant when my motorcycle is bumped while out and about.
 
 ### Supply list
 
 - [Lilygo T-Sim7000g](https://www.lilygo.cc/en-pl/products/t-sim7000g?srsltid=AfmBOopCDDR9SqL6_LpWweL-p6BrUHF4FsLO8fOUN2q282IJ-ty6Kr5G).
   Amazon also has them in America.
-- SIM card. I got one from [Hologram](https://www.hologram.io/) and it was super easy to set up.
-- 18650 battery. You can get these from Amazon and many other places online, just make sure it's a decent one.
-- 6v Solar panel. [Amazon](https://www.amazon.com/gp/product/B09ZL3F7CT/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) had these. DFRobot also has a [semi flexible version](https://www.dfrobot.com/product-1775.html)
-  that is a little more robust.
-- Electrical enclosure box. There are plenty of these to choose from on Amazon and other online stores.
+- SIM card. I got one from [Hologram](https://www.hologram.io/) and it was super
+  easy to set up.
+- 18650 battery. You can get these from Amazon and many other places online,
+  just make sure it's a decent one.
+- 6v Solar panel.
+  [Amazon](https://www.amazon.com/gp/product/B09ZL3F7CT/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
+  had these. DFRobot also has a
+  [semi flexible version](https://www.dfrobot.com/product-1775.html) that is a
+  little more robust.
+- Electrical enclosure box. There are plenty of these to choose from on Amazon
+  and other online stores.
 - [DF Robot Solar Power Manager](https://www.amazon.com/gp/product/B0CT2ZBML9/ref=ppx_yo_dt_b_asin_title_o06_s00?ie=UTF8&psc=1)
 - [3V channel relays](https://www.amazon.com/dp/B08W3XDNGK?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1)
 - [Buzzer](https://www.amazon.com/dp/B0D7W5S2GY?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1)
@@ -48,15 +60,24 @@ in articles like [these](https://randomnerdtutorials.com/lilygo-t-sim7000g-esp32
 My code can be found here:
 https://github.com/emackinnon1/lilygo-bump-GPS/blob/main/lilygo_bump_GPS.ino
 
-This is largely based on the code found in this article under the section titled: [LILYGO T-SIM7000G ESP32: Connect to the Internet, Send SMS, and Get GPS Data](https://randomnerdtutorials.com/lilygo-t-sim7000g-esp32-lte-gprs-gps/#:~:text=LILYGO%20T%2DSIM7000G%20ESP32%3A%20Connect%20to%20the%20Internet%2C%20Send%20SMS%2C%20and%20Get%20GPS%20Data).
-I also used the relevants parts of this code that [sends data to Traccar](https://github.com/onlinegill/LILYGO-TTGO-T-SIM7000G-ESP32-Traccar-GPS-tracker/blob/main/traccar.ino).
+This is largely based on the code found in this article under the section
+titled:
+[LILYGO T-SIM7000G ESP32: Connect to the Internet, Send SMS, and Get GPS Data](https://randomnerdtutorials.com/lilygo-t-sim7000g-esp32-lte-gprs-gps/#:~:text=LILYGO%20T%2DSIM7000G%20ESP32%3A%20Connect%20to%20the%20Internet%2C%20Send%20SMS%2C%20and%20Get%20GPS%20Data).
+I also used the relevants parts of this code that
+[sends data to Traccar](https://github.com/onlinegill/LILYGO-TTGO-T-SIM7000G-ESP32-Traccar-GPS-tracker/blob/main/traccar.ino).
 
-You will want to get your SIM card set up first and test this near a window or outside for good service. Uncomment [these lines with test server and resources](https://github.com/emackinnon1/lilygo-bump-GPS/blob/main/lilygo_bump_GPS.ino#L49-L52) and
-comment out [these lines](https://github.com/emackinnon1/lilygo-bump-GPS/blob/main/lilygo_bump_GPS.ino#L43-L44) in order to try out making http requests. You can comment out the other
-lines setting up the MPU while you are testing as well.
+You will want to get your SIM card set up first and test this near a window or
+outside for good service. Uncomment
+[these lines with test server and resources](https://github.com/emackinnon1/lilygo-bump-GPS/blob/main/lilygo_bump_GPS.ino#L49-L52)
+and comment out
+[these lines](https://github.com/emackinnon1/lilygo-bump-GPS/blob/main/lilygo_bump_GPS.ino#L43-L44)
+in order to try out making http requests. You can comment out the other lines
+setting up the MPU while you are testing as well.
 
-The other [major part of the code that contains an http call](https://github.com/emackinnon1/lilygo-bump-GPS/blob/main/lilygo_bump_GPS.ino#L189-L231) is making a call to my Traccar
-server, which I set up to track GPS location. Traccar has an integration with Home Assistant that makes everything very easy.
+The other
+[major part of the code that contains an http call](https://github.com/emackinnon1/lilygo-bump-GPS/blob/main/lilygo_bump_GPS.ino#L189-L231)
+is making a call to my Traccar server, which I set up to track GPS location.
+Traccar has an integration with Home Assistant that makes everything very easy.
 
 ## Wiring
 
@@ -68,17 +89,24 @@ server, which I set up to track GPS location. Traccar has an integration with Ho
   width={600}
 />
 
-The wiring on this module is fairly simple since the only peripherals wired to the board are an MPU6050 and a relay. The relay should have a 12v A23 battery on it and the
-buzzer. I broke up the MPU and alarms into their own separate modules which made the form factor more manageable. You
-can use electrical glands to run the wires into the different boxes and velcro to attach everything to whatever it is
-you are using this system on.
+The wiring on this module is fairly simple since the only peripherals wired to
+the board are an MPU6050 and a relay. The relay should have a 12v A23 battery on
+it and the buzzer. I broke up the MPU and alarms into their own separate modules
+which made the form factor more manageable. You can use electrical glands to run
+the wires into the different boxes and velcro to attach everything to whatever
+it is you are using this system on.
 
-For the MPU, the SCL and SDA to GPIO 22 and GPIO 21 respectively. After that you just need a wire for 3.3V and GND and one connected to GPIO 32 for an INT signal to
-wakeup the board. The relay is pretty straightforward, connect one end to the other ground pin, one to the other 3v3 pin and one to a GPIO (I used 33).
+For the MPU, the SCL and SDA to GPIO 22 and GPIO 21 respectively. After that you
+just need a wire for 3.3V and GND and one connected to GPIO 32 for an INT signal
+to wakeup the board. The relay is pretty straightforward, connect one end to the
+other ground pin, one to the other 3v3 pin and one to a GPIO (I used 33).
 
-It's optional, but you can also use a solar panel to charge the battery. I did this and used the solar power manager. The nice part about the power manager
-is it tops ou your capacity to a quadruple factor with three more 18650 batteries and you can use whatever solar panel you want even if the voltage is higher than the
-recommended 6v. It does require a little more space inside the electrical box, so you may want to see if that will work for your uses.
+It's optional, but you can also use a solar panel to charge the battery. I did
+this and used the solar power manager. The nice part about the power manager is
+it tops ou your capacity to a quadruple factor with three more 18650 batteries
+and you can use whatever solar panel you want even if the voltage is higher than
+the recommended 6v. It does require a little more space inside the electrical
+box, so you may want to see if that will work for your uses.
 
 ## Wrap Up
 
@@ -99,15 +127,26 @@ recommended 6v. It does require a little more space inside the electrical box, s
   />
 </div>
 
-As mentioned in the beginning, this was the iteration I wanted to make after I made my first [motion sensor](/projects/motion-sensor). MPU6050 modules are extremely useful for motion or
-vibration detection and now that I can combine them with this Lilygo T-SIM7000g, I can send data untethered from a wifi connection or point-to-point communication protocol.
+As mentioned in the beginning, this was the iteration I wanted to make after I
+made my first [motion sensor](/projects/motion-sensor). MPU6050 modules are
+extremely useful for motion or vibration detection and now that I can combine
+them with this Lilygo T-SIM7000g, I can send data untethered from a wifi
+connection or point-to-point communication protocol.
 
-A few of the drawbacks of this iteration are the slow up time (the previous iteration with HC-12s pinged my phone in a matter of seconds that the motion sensor was bumped).
-It takes about a full minute to connect to the hologram network and send updates via http requests, not counting the the GPS calculation and upload, which could be upwards of
-15 minutes. I ended up removing the GPS portion of the code because it took so long and I moved the battery logging to Home Assistant. I may redo this project yet again
-if there is an available 5G solution, but a board or module with this capability seems to be hard-to-find as of now. One other piece about boards is that there is an [MCU based
-around Nordic Semi's nRF9160](https://www.adafruit.com/product/4753) with an accelerometer built in as well as a bunch of other features that are extendable
-with the [FeatherWing](https://www.adafruit.com/category/945) line of products from Adafruit.
+A few of the drawbacks of this iteration are the slow up time (the previous
+iteration with HC-12s pinged my phone in a matter of seconds that the motion
+sensor was bumped). It takes about a full minute to connect to the hologram
+network and send updates via http requests, not counting the the GPS calculation
+and upload, which could be upwards of 15 minutes. I ended up removing the GPS
+portion of the code because it took so long and I moved the battery logging to
+Home Assistant. I may redo this project yet again if there is an available 5G
+solution, but a board or module with this capability seems to be hard-to-find as
+of now. One other piece about boards is that there is an
+[MCU based around Nordic Semi's nRF9160](https://www.adafruit.com/product/4753)
+with an accelerometer built in as well as a bunch of other features that are
+extendable with the [FeatherWing](https://www.adafruit.com/category/945) line of
+products from Adafruit.
 
-The last thing I wish I could change is the form factor. I was able to break things up into more three small electrical boxes, but... It is still a _very_ DIY-looking
-project.
+The last thing I wish I could change is the form factor. I was able to break
+things up into more three small electrical boxes, but... It is still a _very_
+DIY-looking project.
