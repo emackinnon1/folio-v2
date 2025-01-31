@@ -29,7 +29,8 @@ You can now open up `http://localhost:3000` and start writing code!
 
 ## Feature Flag
 
-Major features are feature flagged in [constants/env.ts](https://github.com/emackinnon1/folio-v2/blob/main/src/constants/env.ts)
+Major features are feature flagged in
+[constants/env.ts](https://github.com/emackinnon1/folio-v2/blob/main/src/constants/env.ts)
 
 For example:
 
@@ -45,18 +46,22 @@ export const commentFlag = isProd;
 
 When writing your code, please try to follow the existing code style.
 
-Your code will be automatically linted and formatted before each commit. However, if you want to manually lint and format, use the provided pnpm scripts.
+Your code will be automatically linted and formatted before each commit.
+However, if you want to manually lint and format, use the provided pnpm scripts.
 
 ```sh
 pnpm lint:fix
 pnpm format
 ```
 
-You also have to follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for the commit message.
+You also have to follow
+[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for the
+commit message.
 
 ## Notable Features
 
-This website was first initialized in January 2021, went through numerous changes and refactors, resulted to some notable features
+This website was first initialized in January 2021, went through numerous
+changes and refactors, resulted to some notable features
 
 ### Dedicated Project Page
 

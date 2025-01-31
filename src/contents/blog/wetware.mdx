@@ -3,18 +3,25 @@ title: 'Sliding Scales of Computation'
 publishedAt: '2024-10-17'
 lastUpdated: '2024-10-17'
 tags: 'philosophy,cognitive science,biology'
-description: 'A brief foray into logical computations of behavior and a few musings about what that might mean at higher and lower level animals'
+description:
+  'A brief foray into logical computations of behavior and a few musings about
+  what that might mean at higher and lower level animals'
 banner: '/images/blog/wetware/protein.webp'
 englishOnly: 'true'
 ---
 
 > "The cell moves in an informed if not intelligent way."
 
-In _Wetware_, Dennis Bray walks fine lines of definitional scale. The book is a deep dive into computational biology, sensory signals and organisms' reactions. By his own admission,
-he flits from scope to scope with words like "attention", "memory" and "knowledge", whittling at their meanings until they fit into cell behavior (and they do,
-he says). The general thrust of his ideas and arguments are cells and their proteins are siblings to the digital and analog circuits and signals, with many
-similarities to complex neural networks and computers. Yet, for now at least, silicon-rendered networks on a TPU are to their biological counterparts as my 3 year old
-nephew's Play-Doh people are to Michaelangelo's David.
+In _Wetware_, Dennis Bray walks fine lines of definitional scale. The book is a
+deep dive into computational biology, sensory signals and organisms' reactions.
+By his own admission, he flits from scope to scope with words like "attention",
+"memory" and "knowledge", whittling at their meanings until they fit into cell
+behavior (and they do, he says). The general thrust of his ideas and arguments
+are cells and their proteins are siblings to the digital and analog circuits and
+signals, with many similarities to complex neural networks and computers. Yet,
+for now at least, silicon-rendered networks on a TPU are to their biological
+counterparts as my 3 year old nephew's Play-Doh people are to Michaelangelo's
+David.
 
 <Img
   mdx
@@ -26,22 +33,36 @@ nephew's Play-Doh people are to Michaelangelo's David.
 
 ## Complex obscurity for simple rules
 
-One of the passages in the book illumines the experiments of William Grey Walter. Walter set out to prove that simple logical interactions and connections could result in
-rich behaviors, so he built simple robotic tortoises that "behaved" as if they were searching for food, self aware, and had memory and conditionable reflexes. The tortoises
-were phototaxis, meaning they exhibited movement towards light under certain conditions. In the absence of light, they would explore the area until light was found via a motor
-with a battery attached to the wheels, a simple photorecepter mounted in the head, and bump sensors on the outer shell which kicked off an "object avoidance" movement
-pattern. The circuits that controlled the behavior is worth looking up, but in short, signals from different sensors were amplified or reduced by vacuum tubes and this affected
-the motor and steering systems on the tortoise.
+One of the passages in the book illumines the experiments of William Grey
+Walter. Walter set out to prove that simple logical interactions and connections
+could result in rich behaviors, so he built simple robotic tortoises that
+"behaved" as if they were searching for food, self aware, and had memory and
+conditionable reflexes. The tortoises were phototaxis, meaning they exhibited
+movement towards light under certain conditions. In the absence of light, they
+would explore the area until light was found via a motor with a battery attached
+to the wheels, a simple photorecepter mounted in the head, and bump sensors on
+the outer shell which kicked off an "object avoidance" movement pattern. The
+circuits that controlled the behavior is worth looking up, but in short, signals
+from different sensors were amplified or reduced by vacuum tubes and this
+affected the motor and steering systems on the tortoise.
 
-Walter built an enclosure with a kennel and a 20 Watt light inside of it. When the tortoises had full batteries, they were attracted to the kennel from afar through
-their light sensor. Upon nearing the light, a "repellent" response was induced; light sources over a certain intensity resulted in the motor and steering
-circuits activating with double the force (arcing the tortoise's path away from the light source). However, when the batteries were low, the sensitivity to light decreased
-and the tortoise was attracted to the kennel light and would now enter the kennel (before, the light would generate the "repellent" response), where a battery charger was
-located, subsequently recharging and kicking off the whole process again.
+Walter built an enclosure with a kennel and a 20 Watt light inside of it. When
+the tortoises had full batteries, they were attracted to the kennel from afar
+through their light sensor. Upon nearing the light, a "repellent" response was
+induced; light sources over a certain intensity resulted in the motor and
+steering circuits activating with double the force (arcing the tortoise's path
+away from the light source). However, when the batteries were low, the
+sensitivity to light decreased and the tortoise was attracted to the kennel
+light and would now enter the kennel (before, the light would generate the
+"repellent" response), where a battery charger was located, subsequently
+recharging and kicking off the whole process again.
 
-These behaviors arose from mixed signals and feedback in certain circuits, boiling down to simple logical statements. If we take the behavior of the tortoise being
-attracted to light when the batteries were low, it can be represented by the following (with _BL_ meaning the state of low battery, _LP_ meaning there is a light source present and
-_FL_ standing for "find light", or the behavior of being attracted to the light):
+These behaviors arose from mixed signals and feedback in certain circuits,
+boiling down to simple logical statements. If we take the behavior of the
+tortoise being attracted to light when the batteries were low, it can be
+represented by the following (with _BL_ meaning the state of low battery, _LP_
+meaning there is a light source present and _FL_ standing for "find light", or
+the behavior of being attracted to the light):
 
 ```
 If BL and LP, then FL
@@ -55,21 +76,28 @@ If BL and LP, then FL
   width={650}
 />
 
-With plain logical rules, these tortoises displayed behavior, to a degree, that single cell organisms (or, arguably, more complex animals) might display, but even
-single cell organisms seem to have rudimentary abilities to associatively learn or "learn by experience". Grey Walter set out to create a new version that could do
-the same.
+With plain logical rules, these tortoises displayed behavior, to a degree, that
+single cell organisms (or, arguably, more complex animals) might display, but
+even single cell organisms seem to have rudimentary abilities to associatively
+learn or "learn by experience". Grey Walter set out to create a new version that
+could do the same.
 
-His next iteration ported a sensor's signal that could detect whistles and mixed that signal with the signals from the bump sensor and the light sensor. This new
-circuit allowed the tortoise to be "trained" to come to the whistle as if it were a light. The humble, plain circuit of Walter's tortoises seemed to serve as the
-platform for rudimentary Pavlovian learning, that famous pairing of an unrelated stimulus to a behavior. What the mixing of signals allowed for is a basic
-logical _or_ statement (with _W_ representing the whistle signal, _L_ representing the presence of a light signal and _B_ representing the subsquent behavior of
-heading toward the stimulus):
+His next iteration ported a sensor's signal that could detect whistles and mixed
+that signal with the signals from the bump sensor and the light sensor. This new
+circuit allowed the tortoise to be "trained" to come to the whistle as if it
+were a light. The humble, plain circuit of Walter's tortoises seemed to serve as
+the platform for rudimentary Pavlovian learning, that famous pairing of an
+unrelated stimulus to a behavior. What the mixing of signals allowed for is a
+basic logical _or_ statement (with _W_ representing the whistle signal, _L_
+representing the presence of a light signal and _B_ representing the subsquent
+behavior of heading toward the stimulus):
 
 ```
 If W or L, then B
 ```
 
-These simple logical statements are the basis for many aspects of programming and, in Bray's argument, biological phenomena.
+These simple logical statements are the basis for many aspects of programming
+and, in Bray's argument, biological phenomena.
 
 ## Facades of intelligence
 
@@ -81,27 +109,48 @@ These simple logical statements are the basis for many aspects of programming an
   width={550}
 />
 
-Some of the most complex behavior in the unicellular realm comes from _Stentor roselii_. _Stentor_ is a trumpet-shaped organism that attaches itself to various surfaces
-via a mucus-covered foot. At rest, its mouth is open and the fine cilia inside beat the water to create a current that pulls in particles in the water. The animal then
-determines whether the particles are edible and ejects indegistable particles. When water is squirted into the open mouth, the animal contracts into a ball, but a second
-squirt of water is ignored by the animal. This "surprise" and subsequent "ignore" response was achievable through a host of stimuli, such as jarring the container the animal was in. This, like
-the tortoises, seemed to point to a rudimentary form of "memory" and associative learning.
+Some of the most complex behavior in the unicellular realm comes from _Stentor
+roselii_. _Stentor_ is a trumpet-shaped organism that attaches itself to various
+surfaces via a mucus-covered foot. At rest, its mouth is open and the fine cilia
+inside beat the water to create a current that pulls in particles in the water.
+The animal then determines whether the particles are edible and ejects
+indegistable particles. When water is squirted into the open mouth, the animal
+contracts into a ball, but a second squirt of water is ignored by the animal.
+This "surprise" and subsequent "ignore" response was achievable through a host
+of stimuli, such as jarring the container the animal was in. This, like the
+tortoises, seemed to point to a rudimentary form of "memory" and associative
+learning.
 
-When irritants or injurious particles are squirted into the mouth, _Stentor_ will bend to one side (always in the same direction) and move its mouth out of the path of
-the inedible particles. The leaning behavior will be repeated a few times until a more drastic action is taken: the cilia reverse direction and eject everything in the "mouth" and
-"stomach" (a pouch in the middle of its "body"). This particular behavior of ejection via cilia beating reversal will also be repeated a few times in rapid succession. If the particles
-are still encountered, the organism will retract into a ball (the same response to a surprise stream of water). This retraction will _also_ be repeated a few times, with the animal
-cautiously extending and starting to beat its cilia to ingest particles again after a period of time, as if it is cautiously checking to make sure the coast is clear.
+When irritants or injurious particles are squirted into the mouth, _Stentor_
+will bend to one side (always in the same direction) and move its mouth out of
+the path of the inedible particles. The leaning behavior will be repeated a few
+times until a more drastic action is taken: the cilia reverse direction and
+eject everything in the "mouth" and "stomach" (a pouch in the middle of its
+"body"). This particular behavior of ejection via cilia beating reversal will
+also be repeated a few times in rapid succession. If the particles are still
+encountered, the organism will retract into a ball (the same response to a
+surprise stream of water). This retraction will _also_ be repeated a few times,
+with the animal cautiously extending and starting to beat its cilia to ingest
+particles again after a period of time, as if it is cautiously checking to make
+sure the coast is clear.
 
-The _Stentor_ will continue like this for a little bit, but it is obvious that under the continued circumstances of irritant or injurious particle ingestion, it will take longer
-and longer to extend its body from its retracted phase each time. The experience has "changed" the _Stentor_ and it will try a new strategy if this negative stimuli does
-not cease. Eventually, the _Stentor_ will start to retract and extend repeatedly and violently, breaking the hold that the mucus around its foot has on whatever surface it has
-attached itself to. It then uses its mouth for locomotion and explores nearby surfaces for a time and after 10 or 20 minutes, it performs a complex series of actions to
-reform its mucus tube, fit inside of it, and anchor its pseudopodia to the bottom of the inside of the tube. Afterward, it resumes its normal pose: sampling the water and
-beating its cilia to ingest particles in the event they are edible.
+The _Stentor_ will continue like this for a little bit, but it is obvious that
+under the continued circumstances of irritant or injurious particle ingestion,
+it will take longer and longer to extend its body from its retracted phase each
+time. The experience has "changed" the _Stentor_ and it will try a new strategy
+if this negative stimuli does not cease. Eventually, the _Stentor_ will start to
+retract and extend repeatedly and violently, breaking the hold that the mucus
+around its foot has on whatever surface it has attached itself to. It then uses
+its mouth for locomotion and explores nearby surfaces for a time and after 10 or
+20 minutes, it performs a complex series of actions to reform its mucus tube,
+fit inside of it, and anchor its pseudopodia to the bottom of the inside of the
+tube. Afterward, it resumes its normal pose: sampling the water and beating its
+cilia to ingest particles in the event they are edible.
 
-All of this is "intelligent" behavior performed by a tiny fluid-filled sac less than a millimeter in length. These stimuli and behaviors are bound, through physical and chemical interactions, in logical
-renderings similar to the tortoises of William Grey Walter.
+All of this is "intelligent" behavior performed by a tiny fluid-filled sac less
+than a millimeter in length. These stimuli and behaviors are bound, through
+physical and chemical interactions, in logical renderings similar to the
+tortoises of William Grey Walter.
 
 ## Chemical Logical Operators
 
@@ -113,18 +162,27 @@ renderings similar to the tortoises of William Grey Walter.
   width={550}
 />
 
-In the same way that Walter's second iteration of tortoises combined logical operations (`if whistle present, then light attraction behavior` or `if battery low and light present, then 
-strength of attraction to light increases`), allostery is the platform for cellular computations and logic. Hemoglobin is as good a stepping off point as any: as oxygen
-binds to different sites on a hemoglobin molecule, the neighboring atoms shift slightly to accomodate the new oxygen passenger. This subtly changes the hemoglobin structure.
-Other amino acids that make it up are now slightly different, meaning _their_ downstream behavior is altered ever so slightly. With a handful of bind sites, this can change a protein's
-behavior drastically.
+In the same way that Walter's second iteration of tortoises combined logical
+operations (`if whistle present, then light attraction behavior` or
+`if battery low and light present, then strength of attraction to light increases`),
+allostery is the platform for cellular computations and logic. Hemoglobin is as
+good a stepping off point as any: as oxygen binds to different sites on a
+hemoglobin molecule, the neighboring atoms shift slightly to accomodate the new
+oxygen passenger. This subtly changes the hemoglobin structure. Other amino
+acids that make it up are now slightly different, meaning _their_ downstream
+behavior is altered ever so slightly. With a handful of bind sites, this can
+change a protein's behavior drastically.
 
-As molecule _A_ snaps into place and binds to a site on enzyme _X_ specially suited for it, _X_ transforms into a slightly different shape with a minutely different
-structure. It now supports the binding of molecule _B_, and when _B_ binds, _X_ changes shape ever so slightly again. When _B_ is allowed to bind to protein _X_ (and _X_
-subsequently changes shape from this binding), this _also changes B itself_. Maybe _B_ loses some atoms, gains some, or is altered in some other way, but now _B_,
-upon binding, becomes _B'_ ("B prime"). _B'_ doesn't fit well on _X_'s
-binding site anymore, so it breaks off. This is an allosteric enzyme in action. Inhibition _or_ disinhibition (like our example here) can be achieved, prescribing the
-logic of an AND operator:
+As molecule _A_ snaps into place and binds to a site on enzyme _X_ specially
+suited for it, _X_ transforms into a slightly different shape with a minutely
+different structure. It now supports the binding of molecule _B_, and when _B_
+binds, _X_ changes shape ever so slightly again. When _B_ is allowed to bind to
+protein _X_ (and _X_ subsequently changes shape from this binding), this _also
+changes B itself_. Maybe _B_ loses some atoms, gains some, or is altered in some
+other way, but now _B_, upon binding, becomes _B'_ ("B prime"). _B'_ doesn't fit
+well on _X_'s binding site anymore, so it breaks off. This is an allosteric
+enzyme in action. Inhibition _or_ disinhibition (like our example here) can be
+achieved, prescribing the logic of an AND operator:
 
 ```
 If A and B, then B'
@@ -138,20 +196,35 @@ If A and B, then B'
   width={550}
 />
 
-Herein lies the connection point to the logic driving Walter's tortoises' behavior. It's the connection point to many levels of abstraction of the logic in physical behavior,
-in fact, including our nerve cells and immune cells. Many protein interactions constitute logical _or_ statements (if bound here do this, _or_ if bound there do that) and
-logical _and_ statements (and those logical statements sit in different hierarchies of yet _more_ logical statements). Have you ever wondered how bacterial cells like
-_E. coli_ know how to turn on their flagella to propel themselves in a distinct direction, namely toward a food source?
+Herein lies the connection point to the logic driving Walter's tortoises'
+behavior. It's the connection point to many levels of abstraction of the logic
+in physical behavior, in fact, including our nerve cells and immune cells. Many
+protein interactions constitute logical _or_ statements (if bound here do this,
+_or_ if bound there do that) and logical _and_ statements (and those logical
+statements sit in different hierarchies of yet _more_ logical statements). Have
+you ever wondered how bacterial cells like _E. coli_ know how to turn on their
+flagella to propel themselves in a distinct direction, namely toward a food
+source?
 
-Attached to the membrane of the _E. coli_ are outward facing receptors made of proteins with inward-facing structures, also made of proteins. These outward-facing receptors detect chemicals of interest
-and at a rate that depends on the external stimuli, adds phosphate to another protein (CheY, which becomse CheYp with the phosphate attached) inside the cell via the
-internal-facing structures on the inside of the membrane. Once this protein is loaded with phosphate, it diffuses through the cytoplasm and lands on the internal
-structures attached to the base of the flagella. Through a cascade of allosteric shape changes, influxes of ions and protein interactions, the binding of the CheYp to the internal base of the motor drives changes in connection
-and shape in other parts of the motor and flagella, generating movement.
+Attached to the membrane of the _E. coli_ are outward facing receptors made of
+proteins with inward-facing structures, also made of proteins. These
+outward-facing receptors detect chemicals of interest and at a rate that depends
+on the external stimuli, adds phosphate to another protein (CheY, which becomse
+CheYp with the phosphate attached) inside the cell via the internal-facing
+structures on the inside of the membrane. Once this protein is loaded with
+phosphate, it diffuses through the cytoplasm and lands on the internal
+structures attached to the base of the flagella. Through a cascade of allosteric
+shape changes, influxes of ions and protein interactions, the binding of the
+CheYp to the internal base of the motor drives changes in connection and shape
+in other parts of the motor and flagella, generating movement.
 
-It's worth a look at an [explanation](https://www.youtube.com/watch?v=9nZYlyFGm50&ab_channel=XVIVOScientificAnimation)
-of the flagella movement or an [animation](https://www.youtube.com/watch?v=dYt5135_0bs&ab_channel=SmartBiology) of the protein motors to appreciate just how insanely
-complex these structures and mechanisms are. These are all lesser structures inside the flagella are, in turn, driven by their own allosteric logic.
+It's worth a look at an
+[explanation](https://www.youtube.com/watch?v=9nZYlyFGm50&ab_channel=XVIVOScientificAnimation)
+of the flagella movement or an
+[animation](https://www.youtube.com/watch?v=dYt5135_0bs&ab_channel=SmartBiology)
+of the protein motors to appreciate just how insanely complex these structures
+and mechanisms are. These are all lesser structures inside the flagella are, in
+turn, driven by their own allosteric logic.
 
 ```
 If chemical of interest present, then bind to receptor and "activate" through allostery.
@@ -160,9 +233,13 @@ If CheYp present, then bind to motor.
 If ..., then ...
 ```
 
-These are the physical "lines of code" driving the sophisticated, programmed behavior of cells. They are just as bound to the physical world as lines of real code in software are ultimately
-bound to the transistors and circuits that make it up. There is another "block of code" in the receptor that senses relevant stimuli that performs calculus on the rate of change of environmental stimuli,
-essentially performing calculus to determine if the rate of change is up or down, which is the upstream drive of the flagellar motors.
+These are the physical "lines of code" driving the sophisticated, programmed
+behavior of cells. They are just as bound to the physical world as lines of real
+code in software are ultimately bound to the transistors and circuits that make
+it up. There is another "block of code" in the receptor that senses relevant
+stimuli that performs calculus on the rate of change of environmental stimuli,
+essentially performing calculus to determine if the rate of change is up or
+down, which is the upstream drive of the flagellar motors.
 
 <Img
   mdx
@@ -174,42 +251,78 @@ essentially performing calculus to determine if the rate of change is up or down
 
 ## Cognition at Scale
 
-Attention has its roots in human consciousness; we first discovered and described the phenomenon in ourselves and other seemingly-conscious animals. Yet, from our place
-in the upper echelons of conscious powers, "attention" oozes down into the lower depths of the animal kingdom, waning in definitional complexity, yet seemingly still
-present in shallower forms. Most microorganisms display what in higher order animals is termed "attention". As illustrated, _E. coli_, among other organisms, actively
-seek new nutrient-rich environments and "taste" what is in front of them to gauge the best direction to pursue food. While engaged in this search, they narrow their
-attention; other normally immediate response-inducing stimuli like temperature or chemical signals are ignored (attention probably has its contraints at this low-res
-level, as it is likely impossible for a cell to react to two distinct stimuli at once).
+Attention has its roots in human consciousness; we first discovered and
+described the phenomenon in ourselves and other seemingly-conscious animals.
+Yet, from our place in the upper echelons of conscious powers, "attention" oozes
+down into the lower depths of the animal kingdom, waning in definitional
+complexity, yet seemingly still present in shallower forms. Most microorganisms
+display what in higher order animals is termed "attention". As illustrated, _E.
+coli_, among other organisms, actively seek new nutrient-rich environments and
+"taste" what is in front of them to gauge the best direction to pursue food.
+While engaged in this search, they narrow their attention; other normally
+immediate response-inducing stimuli like temperature or chemical signals are
+ignored (attention probably has its contraints at this low-res level, as it is
+likely impossible for a cell to react to two distinct stimuli at once).
 
-At some point in the gradient of complexity of biological behavior and consciousness, a curious emergence occurs. We humans are able to remove ourselves from _some_ loops of hard-coded
-logic; the capability to rewrite and learn is present at higher orders. We are not always chained to infinite clock cycles of the same genetic coding like _Sphex_, a species of wasp.
+At some point in the gradient of complexity of biological behavior and
+consciousness, a curious emergence occurs. We humans are able to remove
+ourselves from _some_ loops of hard-coded logic; the capability to rewrite and
+learn is present at higher orders. We are not always chained to infinite clock
+cycles of the same genetic coding like _Sphex_, a species of wasp.
 
-_Spex_'s behavior, at first glance seems future-oriented and sagacious. She, upon becoming pregnant, captures and stings a cricket in such a way as to paralyze but not kill it.
-Afterward, she drags the prey to the entrance of a previously-dug burrow, leaves it there while checking inside that it is still clear, returns to the entrance and
-drags the cricket inside, lays eggs by the prey's side, carefully seals the burrow, and flies away, leaving the cricket for her soon-to-be-hatched children (who will
-subsequently dine on their first meal of cricket). The behavior is so detailed and clearly goal-oriented, it is hard _not_ to think the wasp has some ability to think
-about the future and plan for it. However, the illusion is shattered quite easily. After dragging the cricket to the entrance of the burrow, leaving it, and heading inside to check the burrow, researchers
-moved the cricket a few inches away from the burrow entrance. Instead of simply dragging the cricket inside, as _Sphex_ had _just_ checked the burrow, she repeats the same
-step of dragging the cricket to the entrance, then heading inside the burrow to check for security. Researchers in one experiment got the wasp to repeat this step 40 times
-in a row, clearly highlighting the hardcoding of this genetically-driven behavior.
+_Spex_'s behavior, at first glance seems future-oriented and sagacious. She,
+upon becoming pregnant, captures and stings a cricket in such a way as to
+paralyze but not kill it. Afterward, she drags the prey to the entrance of a
+previously-dug burrow, leaves it there while checking inside that it is still
+clear, returns to the entrance and drags the cricket inside, lays eggs by the
+prey's side, carefully seals the burrow, and flies away, leaving the cricket for
+her soon-to-be-hatched children (who will subsequently dine on their first meal
+of cricket). The behavior is so detailed and clearly goal-oriented, it is hard
+_not_ to think the wasp has some ability to think about the future and plan for
+it. However, the illusion is shattered quite easily. After dragging the cricket
+to the entrance of the burrow, leaving it, and heading inside to check the
+burrow, researchers moved the cricket a few inches away from the burrow
+entrance. Instead of simply dragging the cricket inside, as _Sphex_ had _just_
+checked the burrow, she repeats the same step of dragging the cricket to the
+entrance, then heading inside the burrow to check for security. Researchers in
+one experiment got the wasp to repeat this step 40 times in a row, clearly
+highlighting the hardcoding of this genetically-driven behavior.
 
-> Note: if you haven't read Determined by Robert Sapolsky, look up the chapter on Aplysia californica, or, better yet, read through the explanation put forth by Eric Kandel
-> that won him a Nobel Prize in physiology. It's an excellent model for the same mechanisms of learning and memory present in humans.
+> Note: if you haven't read Determined by Robert Sapolsky, look up the chapter
+> on Aplysia californica, or, better yet, read through the explanation put forth
+> by Eric Kandel that won him a Nobel Prize in physiology. It's an excellent
+> model for the same mechanisms of learning and memory present in humans.
 
-At what level does something like "attention" resolve and where does it become rewritable? Is there a clear boundary along the way? What starting point exists for cells; no attention, or some attention?
-We ponder these questions with the luxury of the 21st century. Science is far from completely understanding the entire subject, but there is at least agreement on cells
-not displaying consciousness and "attention" in the same way that a person might. However, a watered-down version of the concept is not foreign to the cellular arena. Despite lacking
-necessary substrates of nerve cells, neurotransmitters, and brains that process incoming environmental signals, build memories, render complex thought and drive responses or
-behaviors, microorganisms, with their viscous chemical soups and powers of allosteric proteins, have powerful networks of communication and logical meaning.
+At what level does something like "attention" resolve and where does it become
+rewritable? Is there a clear boundary along the way? What starting point exists
+for cells; no attention, or some attention? We ponder these questions with the
+luxury of the 21st century. Science is far from completely understanding the
+entire subject, but there is at least agreement on cells not displaying
+consciousness and "attention" in the same way that a person might. However, a
+watered-down version of the concept is not foreign to the cellular arena.
+Despite lacking necessary substrates of nerve cells, neurotransmitters, and
+brains that process incoming environmental signals, build memories, render
+complex thought and drive responses or behaviors, microorganisms, with their
+viscous chemical soups and powers of allosteric proteins, have powerful networks
+of communication and logical meaning.
 
-The mechanics of cell locomotion, ingestion and digestion, signal sensing, reactions to environment and other behaviors are traversed in much greater detail in Bray's book.
-In a cell's universe, physics and chemistry are one in the same (they arguably are at higher orders of resolution, too) and they constitute the mechanical, logical movement
-and communication networks of our arms, muscles, nervous system, hormonal signals and processing, and other similar systems. When the systems described work in conjunction
-with each other, fuzzy forms of "attention" and "memory" and "learning" resolve. Much like our own neurological structures perform classifications and
-abstractions, Bray has pointed out that the logical processes are remarkably consistent on down to these most minute of resolutions (even some of the proteins are
-consistent; actin and myosin are used in the logic of flagellar locomotion and in our own muscle cells). In each pathway or process, the cell has formed abstractions
-of the world. Each of your cells has, embedded in it, a constellation of worldly chemical and physical meaning and knowledge.
+The mechanics of cell locomotion, ingestion and digestion, signal sensing,
+reactions to environment and other behaviors are traversed in much greater
+detail in Bray's book. In a cell's universe, physics and chemistry are one in
+the same (they arguably are at higher orders of resolution, too) and they
+constitute the mechanical, logical movement and communication networks of our
+arms, muscles, nervous system, hormonal signals and processing, and other
+similar systems. When the systems described work in conjunction with each other,
+fuzzy forms of "attention" and "memory" and "learning" resolve. Much like our
+own neurological structures perform classifications and abstractions, Bray has
+pointed out that the logical processes are remarkably consistent on down to
+these most minute of resolutions (even some of the proteins are consistent;
+actin and myosin are used in the logic of flagellar locomotion and in our own
+muscle cells). In each pathway or process, the cell has formed abstractions of
+the world. Each of your cells has, embedded in it, a constellation of worldly
+chemical and physical meaning and knowledge.
 
-Nobel Prize winning American geneticist Barbara McClintock identified a goal for future biologists:
+Nobel Prize winning American geneticist Barbara McClintock identified a goal for
+future biologists:
 
 > "To determine the extent of knowledge the cell has of itself."

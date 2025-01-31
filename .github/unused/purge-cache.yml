@@ -7,7 +7,9 @@ concurrency:
 
 jobs:
   purge-everything:
-    if: ${{ github.event.deployment_status.state == 'success' && github.event.deployment_status.environment == 'Production' }}
+    if:
+      ${{ github.event.deployment_status.state == 'success' &&
+      github.event.deployment_status.environment == 'Production' }}
     runs-on: ubuntu-latest
     steps:
       - name: Purge cache
