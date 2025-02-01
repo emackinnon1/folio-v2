@@ -26,9 +26,12 @@ function getGitHubYears(joinYear: number | undefined): number[] {
 }
 
 export default function ContributionGraph() {
-  const [calendarYear, setCalendarYear] = useState<number | undefined>(
-    undefined
-  );
+  const today = new Date().getFullYear();
+  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
+  const joinYear = Number(process.env.NEXT_PUBLIC_GITHUB_JOIN_YEAR);
+  const years = getGitHubYears(joinYear);
+
+  const [calendarYear, setCalendarYear] = useState<number>(today);
   const { theme, systemTheme } = useTheme();
   const [serverTheme, setServerTheme] = useState<'light' | 'dark' | undefined>(
     undefined
@@ -41,11 +44,6 @@ export default function ContributionGraph() {
   useEffect(() => {
     setServerTheme(scheme);
   }, [scheme]);
-
-  const today = new Date().getFullYear();
-  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
-  const joinYear = Number(process.env.NEXT_PUBLIC_GITHUB_JOIN_YEAR);
-  const years = getGitHubYears(joinYear);
 
   if (!username || !joinYear)
     return (
