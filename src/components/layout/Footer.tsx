@@ -176,11 +176,11 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
     //   text: 'Subscribe',
     //   tooltip: 'Get an email whenever I post, no spam',
     // },
-    // {
-    //   href: 'https://theodorusclarence.com/rss.xml',
-    //   text: 'RSS',
-    //   tooltip: 'Add theodorusclarence.com blog to your feeds',
-    // },
+    {
+      href: 'https://emackinnon.io/rss.xml',
+      text: 'RSS',
+      tooltip: 'Add emackinnon.io blog to your feeds',
+    },
   ];
 
 type Social = {
