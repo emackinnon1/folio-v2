@@ -9,7 +9,7 @@ const defaultMeta = {
   description: 'An online portfolio and blog by Elliot Mackinnon.',
   url: 'https://emackinnon1.io/',
   image:
-    'https://github.com/emackinnon1/folio-v2/tree/main/public/favicon/EM.png',
+    'https://github.com/emackinnon1/folio-v2/tree/main/public/favicon/og_image.png',
   type: 'website',
   robots: 'follow, index',
 };
