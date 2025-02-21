@@ -92,33 +92,36 @@ export default function AboutPage() {
                   it!
                 </p> */}
                 <p data-fade='4'>
-                  The series of events leading up to this point in my life have
-                  been meandering.
+                  The journey to this point in my life has been… let’s call it
+                  “scenic.”
                 </p>
                 <p data-fade='4'>
-                  I am from Atlanta, GA and lived there until my late twenties
-                  (with a brief stint in the gorgeous deserts of west Texas). I
-                  went to college at Georgia State University, where I studied
-                  what you might call "neuropsych" these days (a mix of
-                  psychology and neuroscience curriculum). I worked aimlessly at
-                  a few sales jobs afterwards but, tired of the life I knew, I
-                  packed my bags and moved to Munich, Germany where I was
-                  stumbling distance from the festival grounds of Oktoberfest
-                  for a few years. I taught English to kindergarten-aged
-                  children over there, realizing that I am no different from
-                  them: I too hate my vegetables and refuse to wear socks and
-                  shoes indoors.
+                  I grew up in Atlanta, GA, and stayed there through my late
+                  twenties—except for a brief detour into the sun-baked beauty
+                  of West Texas. I studied what we’d now call “neuropsych” at
+                  Georgia State University (a fancy way of saying a mix of
+                  psychology and neuroscience) before bouncing between a few
+                  sales jobs. Eventually, I decided life needed a plot twist.
+                  So, I packed my bags and moved to Munich, Germany, where I
+                  lived just a well-aimed beer stein away from the Oktoberfest
+                  grounds.
                 </p>
                 <p data-fade='4'>
-                  While being a shepherd to a roving herd of small humans and in
-                  between solo online German lessons before and after work, I
-                  taught myself how to code. Wanting to learn faster, I came
-                  back to the States and did a frontend program at Turing School
-                  in Denver, CO and got a job soon after doing full stack work.
-                  Since then, I have been fiddling with firmware, puttering
-                  around with raspberry pi's and getting my hands into
-                  everything software-related. Tinkering and building has become
-                  a career and a hobby.
+                  In Munich, I spent my days teaching English to kindergarteners
+                  and quickly realized I had a lot in common with them: I, too,
+                  dislike vegetables and see no reason to wear socks indoors.
+                  Somewhere between wrangling tiny humans and butchering German
+                  grammar in online lessons, I picked up coding. Eager to level
+                  up, I moved back to the States, completed a frontend program
+                  at Turing School in Denver, and landed a full-stack gig soon
+                  after.
+                </p>
+                <p data-fade='4'>
+                  Since then, I’ve been tinkering with firmware, puttering
+                  around with Raspberry Pis, and generally sticking my nose into
+                  all things software-related. These days, building and
+                  experimenting isn’t just my career—it’s my favorite way to
+                  procrastinate.
                 </p>
               </article>
               {/* <h3 className='h4 mt-4' data-fade='6'>
@@ -184,7 +187,7 @@ export default function AboutPage() {
                   <article className='prose dark:prose-invert'>
                     <p>
                       Currently I am learning firmware and working on mastering
-                      microcontrollers in C++!
+                      microcontrollers in C and C++!
                     </p>
                   </article>
                 </div>
