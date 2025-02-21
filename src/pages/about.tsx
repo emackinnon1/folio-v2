@@ -65,32 +65,6 @@ export default function AboutPage() {
                 <p data-fade='3'>
                   Like most people my age, I am {age}. (That was a joke).
                 </p>
-                {/* <p data-fade='4'>
-                  But seriously, how do you sum yourself up? How are you
-                  supposed to enumerate the set of all qualities and facets, all
-                  surfaces, themselves initiates of functions of situation and
-                  circumstance, every infinite layer upon infinite layer of time
-                  and being and experience that make you, you? How do you
-                  describe yourself with finite, restrictive, meer words? Hell
-                  if I know, but here’s my best shot:
-                </p>
-                <p data-date='4'>
-                  I am chiefly in wonder. The universe is eternally wide and
-                  enthralling. There are too many things to learn, people to
-                  meet, philosophies to mull, natural beauties to behold,
-                  experiences to relish, books to read and information to
-                  gather, and phenomena of the world to enrapture with their
-                  sheer, utter elegance. There is not enough time in the day to
-                  learn all I want to know and see all I want to see; senescence
-                  has relegated me to a life unfulfilled in that regard. I know
-                  that, were I to live to 1000 years old, I would remain
-                  desiccated, a husk. Not from the parched and dried bones that
-                  come with a body in its twilight, but from the hole I cannot
-                  patch, the void I cannot fill...{' '}
-                  <Accent>the things I’ll never know.</Accent> It is truly
-                  invigorating to take notice of the world and the mysteries in
-                  it!
-                </p> */}
                 <p data-fade='4'>
                   The journey to this point in my life has been… let’s call it
                   “scenic.”
