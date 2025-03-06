@@ -12,6 +12,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@tanstack/eslint-plugin-query/recommended',
     'prettier',
+    'plugin:mdx/recommended',
   ],
   rules: {
     '@typescript-eslint/no-explicit-any': 'off',
@@ -20,6 +21,9 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/no-unescaped-entities': 'off',
     'react/display-name': 'off',
+    'react/jsx-no-undef': 'off',
+    'no-irregular-whitespace': 'off',
+    '@next/next/no-html-link-for-pages': 'off',
     'react/no-unknown-property': ['error', { ignore: ['jsx'] }],
     'react/jsx-curly-brace-presence': [
       'warn',
