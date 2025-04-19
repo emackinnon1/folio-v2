@@ -157,14 +157,6 @@ export default function SingleBlogPage({
                   </Accent>
                 </div>
               </div>
-              {/* {!frontmatter?.englishOnly && (
-                <CustomLink
-                  href={`/blog/${isEnglish ? 'id-' : ''}${cleanSlug}`}
-                  className='mt-4'
-                >
-                  Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
-                </CustomLink>
-              )} */}
             </div>
 
             <hr className='dark:border-gray-600' />
