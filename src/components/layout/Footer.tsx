@@ -29,29 +29,53 @@ export default function Footer() {
   return (
     <footer className='mt-4 pb-2'>
       <main className='layout flex flex-col items-center border-t pt-6 dark:border-gray-600'>
-        <FooterLinks />
+        <section className='flex w-full flex-col items-center justify-between gap-4 md:flex-row'>
+          <div>
+            <UnstyledLink
+              href='/'
+              className='flex items-center gap-1 font-bold hover:text-primary-500 dark:hover:text-primary-300'
+            >
+              <Accent className='font-bold text-xl md:text-2xl'>EM.</Accent>
+            </UnstyledLink>
+            <p className='mt-1 max-w-md text-sm text-gray-600 dark:text-gray-300'>
+              A portfolio and blog by Elliot Mackinnon, sharing web development
+              insights and projects.
+            </p>
+          </div>
+          <div className='flex flex-col items-end gap-2'>
+            <FooterLinks />
+            {spotifyFlag && <Spotify className='mt-4' />}
+          </div>
+        </section>
 
-        {spotifyFlag && <Spotify className='mt-8' />}
-
-        <p className='mt-12 font-medium text-gray-600 dark:text-gray-300'>
-          Find me here
-        </p>
-        <SocialLinks />
+        <div className='mt-8 flex flex-col items-center gap-4'>
+          <p className='font-medium text-gray-600 dark:text-gray-300'>
+            Connect with me
+          </p>
+          <SocialLinks />
+        </div>
 
         <p className='mt-8 text-sm text-gray-600 dark:text-gray-300'>
-          © Elliot Mackinnon {new Date().getFullYear()}
-          {/* {feedbackFlag && (
-            <>
-              {' • '}
-              <FeedbackFish
-                projectId={process.env.NEXT_PUBLIC_FEEDBACK_FISH_ID || ''}
-              >
-                <button className='rounded-sm hover:text-gray-800 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:hover:text-gray-100'>
-                  Got any feedback?
-                </button>
-              </FeedbackFish>
-            </>
-          )} */}
+          © Elliot Mackinnon {new Date().getFullYear()} • Built with{' '}
+          <UnstyledLink
+            href='https://nextjs.org/'
+            className='animated-underline rounded-sm font-medium text-gray-700 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:text-gray-200'
+            onClick={() => {
+              trackEvent('Footer Link: Next.js', { type: 'link' });
+            }}
+          >
+            Next.js
+          </UnstyledLink>{' '}
+          and{' '}
+          <UnstyledLink
+            href='https://tailwindcss.com/'
+            className='animated-underline rounded-sm font-medium text-gray-700 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:text-gray-200'
+            onClick={() => {
+              trackEvent('Footer Link: Tailwind', { type: 'link' });
+            }}
+          >
+            Tailwind CSS
+          </UnstyledLink>
         </p>
       </main>
     </footer>
@@ -60,11 +84,11 @@ export default function Footer() {
 
 function FooterLinks() {
   return (
-    <div className='flex flex-wrap justify-center gap-x-8 gap-y-4'>
+    <div className='flex flex-wrap justify-end gap-x-4 gap-y-2 md:gap-x-8'>
       {footerLinks.map(({ href, text, tooltip }) => (
         <Tooltip interactive={false} key={href} tipChildren={tooltip}>
           <UnstyledLink
-            className='animated-underline rounded-sm text-sm font-medium focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:text-gray-200'
+            className='animated-underline text-sm font-medium text-gray-700 dark:text-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
             href={href}
             onClick={() => {
               trackEvent(`Footer Link: ${text}`, { type: 'link' });
@@ -84,7 +108,7 @@ function SocialLinks() {
   const [copy] = useCopyToClipboard();
 
   return (
-    <div className='mt-2 flex space-x-4'>
+    <div className='flex space-x-4'>
       <div className='flex items-center justify-center'>
         <Tooltip
           trigger='mouseenter'
@@ -110,7 +134,7 @@ function SocialLinks() {
             }}
             className='rounded-sm align-middle focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
           >
-            <FiMail className='h-7 w-7 align-middle text-gray-600 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
+            <FiMail className='h-6 w-6 align-middle text-gray-600 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
           </button>
         </Tooltip>
       </div>
@@ -121,13 +145,13 @@ function SocialLinks() {
           tipChildren={social.text}
         >
           <UnstyledLink
-            className='inline-flex items-center justify-center rounded-sm focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+            className='inline-flex items-center justify-center rounded-sm hover:text-primary-300 focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
             href={social.href}
             onClick={() => {
               trackEvent(`Footer Link: ${social.id}`, { type: 'link' });
             }}
           >
-            <social.icon className='my-auto h-6 w-6 align-middle text-gray-600 transition-colors hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
+            <social.icon className='my-auto h-5 w-5 align-middle text-gray-600 transition-colors hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
           </UnstyledLink>
         </Tooltip>
       ))}
@@ -142,21 +166,6 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
       text: 'Design',
       tooltip: 'website color palette',
     },
-    // {
-    //   href: 'https://clarence.link/docs',
-    //   text: 'Docs',
-    //   tooltip: 'Personal documentation about my best practices on development',
-    // },
-    // {
-    //   href: 'https://clarence.link/booknotes',
-    //   text: 'Book Notes',
-    //   tooltip: 'Note collection of books that I read',
-    // },
-    // {
-    //   href: 'https://clarence.link/starters',
-    //   text: 'Starter Templates',
-    //   tooltip: 'Starter that I build and use throughout my projects',
-    // },
     {
       href: 'https://us.umami.is/share/ESzFFWN1lFieRVkb/emackinnon.io',
       text: 'Analytics',
@@ -167,17 +176,11 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
       text: 'Statistics',
       tooltip: 'Blog, Projects, and Library Statistics',
     },
-    // {
-    //   href: '/guestbook',
-    //   text: 'Guestbook',
-    //   tooltip:
-    //     'Leave whatever you like to say—message, appreciation, suggestions',
-    // },
-    // {
-    //   href: '/subscribe',
-    //   text: 'Subscribe',
-    //   tooltip: 'Get an email whenever I post, no spam',
-    // },
+    {
+      href: '/subscribe',
+      text: 'Subscribe',
+      tooltip: 'Get an email whenever I post, no spam',
+    },
     {
       href: 'https://emackinnon.io/rss.xml',
       text: 'RSS',
@@ -251,7 +254,7 @@ const socials: Social[] = [
     id: 'Letterboxd',
     text: (
       <>
-        I am a huge cinephile Follow me on{' '}
+        I am a huge cinephile. Follow me on{' '}
         <Accent className='font-medium'>Letterboxd</Accent>!
       </>
     ),

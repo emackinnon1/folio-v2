@@ -1,7 +1,7 @@
 [
   {
     "date": "Sep 2024 - Present",
-    "imageSrc": "https://pbs.twimg.com/profile_images/1646127546218741765/cP5J5SC3_400x400.png",
+    "imageSrc": "https://folio-v2-images.s3.us-west-2.amazonaws.com/images/logos/calendly.svg",
     "title": "Software Engineer III",
     "company": "Calendly",
     "link": "https://calendly.com/",
@@ -16,7 +16,7 @@
   },
   {
     "date": "Sep 2022 - May 2024",
-    "imageSrc": "https://pbs.twimg.com/profile_images/1646127546218741765/cP5J5SC3_400x400.png",
+    "imageSrc": "https://folio-v2-images.s3.us-west-2.amazonaws.com/images/logos/guild.png",
     "title": "Software Engineer II",
     "company": "Guild Education",
     "link": "https://guild.com/",
@@ -36,7 +36,7 @@
   },
   {
     "date": "Mar 2021 - Sep 2022",
-    "imageSrc": "https://pbs.twimg.com/profile_images/1646127546218741765/cP5J5SC3_400x400.png",
+    "imageSrc": "https://folio-v2-images.s3.us-west-2.amazonaws.com/images/logos/guild.png",
     "title": "Software Engineer I",
     "company": "Guild Education",
     "link": "https://guild.com/",
@@ -57,7 +57,7 @@
 
   {
     "date": "Aug 2020 - Mar 2021",
-    "imageSrc": "https://media.licdn.com/dms/image/v2/C560BAQHGlgjiElkrWg/company-logo_200_200/company-logo_200_200/0/1661476655580/techtonicgroup_logo?e=1731542400&v=beta&t=mlwdgA3hRco55RjxTyTCysloGIo-X2D8mjkZ6Cb4zKo",
+    "imageSrc": "https://folio-v2-images.s3.us-west-2.amazonaws.com/images/logos/techtonic.png",
     "title": "Junior Software Engineer",
     "company": "Techtonic",
     "link": "https://www.linkedin.com/company/techtonicgroup/",
@@ -77,7 +77,7 @@
   },
   {
     "date": "Apr 2018 - Nov 2019",
-    "imageSrc": "https://media.licdn.com/dms/image/C4D0BAQEi0LWgqDgF6w/company-logo_200_200/0/1630495063413?e=1731542400&v=beta&t=WfGoZPWqGd1KFBvt4BwPQLmU9gUoox-hgUib7Kt4-cU",
+    "imageSrc": "https://folio-v2-images.s3.us-west-2.amazonaws.com/images/logos/elly-und-stoffl.jpeg",
     "title": "English Teacher",
     "company": "Elly und Stoffl, Gmbh",
     "link": "https://www.ellyundstoffl.de/",
@@ -94,7 +94,7 @@
   },
   {
     "date": "Jun 2017 - Dec 2017",
-    "imageSrc": "https://www.brightreeanalytics.com/Branding/Brightree/logoPhoneLarge.png",
+    "imageSrc": "https://folio-v2-images.s3.us-west-2.amazonaws.com/images/logos/BrightreeLogo.jpg",
     "title": "Enterprise Software Sales",
     "company": "Brightree",
     "link": "https://www.brightree.com/",
@@ -111,7 +111,7 @@
   },
   {
     "date": "Sep 2016 - Jun 2017",
-    "imageSrc": "https://heattrak.com/cdn/shop/files/HeatTrak-Logo-Color.svg?v=1686229149&width=400",
+    "imageSrc": "https://folio-v2-images.s3.us-west-2.amazonaws.com/images/logos/heattrak.webp",
     "title": "Inside Sales Rep",
     "company": "Heattrak",
     "link": "https://heattrak.com/",
