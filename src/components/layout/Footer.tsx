@@ -8,6 +8,8 @@ import {
   SiInstagram,
   SiLetterboxd,
   SiLinkedin,
+  SiMedium,
+  SiSubstack,
 } from 'react-icons/si';
 
 import { trackEvent } from '@/lib/analytics';
@@ -218,6 +220,28 @@ const socials: Social[] = [
       <>
         I post some fancy pics sometimes. Follow me on{' '}
         <Accent className='font-medium'>Instagram</Accent>!
+      </>
+    ),
+  },
+  {
+    href: 'https://substack.com/@elliotmackinnon',
+    icon: SiSubstack,
+    id: 'Substack',
+    text: (
+      <>
+        If you like my articles, I am also on{' '}
+        <Accent className='font-medium'>Substack</Accent>!
+      </>
+    ),
+  },
+  {
+    href: 'https://medium.com/@emackinnon100390',
+    icon: SiMedium,
+    id: 'Medium',
+    text: (
+      <>
+        If you like my articles, I am also on{' '}
+        <Accent className='font-medium'>Medium</Accent>!
       </>
     ),
   },
