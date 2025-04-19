@@ -61,7 +61,15 @@ export default function IndexPage({
               >
                 Full-time Engineer. Rest-Of-The-Time Tinkerer.
               </p>
-
+              <p
+                className='mt-2 max-w-6xl text-gray-700 dark:text-gray-200 md:text-md 2xl:text-md'
+                data-fade='3'
+              >
+                Rather than shouting my thoughts at the pigeons in local public
+                parks, I decided to put them on this website.
+                <br />
+                Remains to be seen if the pigeons will visit it.
+              </p>
               <div data-fade='4' className='mt-8 flex flex-wrap gap-4'>
                 <div className='group relative'>
                   <div
