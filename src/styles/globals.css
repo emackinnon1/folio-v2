@@ -214,7 +214,94 @@
     transition-delay: 900ms;
   }
   /* #endregion  /**======== Fade In =========== */
+
+  /* #region  /**=========== Animation Keyframes =========== */
+  @keyframes shimmer {
+    0% {
+      background-position: -40rem 0;
+    }
+    100% {
+      background-position: 40rem 0;
+    }
+  }
+
+  @keyframes tilt {
+    0%,
+    50%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(0.5deg);
+    }
+    75% {
+      transform: rotate(-0.5deg);
+    }
+  }
+
+  @keyframes pulse {
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  /* Enhanced animations based on Theodorus Clarence's website */
+  .animate-shimmer {
+    animation: shimmer 8s infinite linear;
+    background: linear-gradient(
+      to right,
+      #00e88720 4%,
+      #00e0f320 25%,
+      #00e88720 36%
+    );
+    background-size: 80rem 100%;
+  }
+
+  .animate-tilt {
+    animation: tilt 10s infinite linear;
+  }
+
+  .hover-card {
+    @apply transition duration-300 hover:-translate-y-1;
+  }
+
+  /* Card hover animation */
+  .card-hover {
+    @apply transition-all duration-300;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+  .card-hover:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transform: translateY(-4px);
+  }
+
+  /* Link hover animation */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 2px;
+    right: 0;
+    background: linear-gradient(
+      to right,
+      var(--clr-primary-300),
+      var(--clr-primary-400)
+    );
+    transition: width 0.3s ease;
+  }
+  .link-underline:hover:after {
+    width: 100%;
+    left: 0;
+    right: auto;
+  }
+  /* #endregion  /**======== Animation Keyframes =========== */
 }
+
 /* Tippy */
 .tippy-tooltip [x-circle] {
   background-color: transparent !important;

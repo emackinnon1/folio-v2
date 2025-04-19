@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import * as React from 'react';
+import { FiExternalLink } from 'react-icons/fi';
 
 import Accent from '@/components/Accent';
 import ThemeButton from '@/components/buttons/ThemeButton';
@@ -64,8 +65,21 @@ export default function Header({ large = false }: HeaderProps) {
             large && 'lg:max-w-[68rem]'
           )}
         >
-          <ul className='flex items-center justify-between space-x-3 text-xs md:space-x-4 md:text-base'>
-            {links.map(({ href, label }) => (
+          <ul className='flex items-center justify-between gap-2 md:gap-4'>
+            <li>
+              <UnstyledLink
+                href='/'
+                className={clsx(
+                  'font-bold text-lg md:text-xl transition-colors',
+                  'text-black dark:text-white',
+                  'hover:text-primary-500 dark:hover:text-primary-300',
+                  'focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+                )}
+              >
+                <Accent>EM.</Accent>
+              </UnstyledLink>
+            </li>
+            {links.map(({ href, label, external }) => (
               <li key={`${href}${label}`}>
                 <UnstyledLink
                   href={href}
@@ -75,6 +89,10 @@ export default function Header({ large = false }: HeaderProps) {
                     'group dark:hover:text-primary-300',
                     'focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
                   )}
+                  {...(external && {
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                  })}
                 >
                   <span
                     className={clsx(
@@ -85,6 +103,9 @@ export default function Header({ large = false }: HeaderProps) {
                     )}
                   >
                     {label}
+                    {external && (
+                      <FiExternalLink className='ml-1 inline-block text-sm' />
+                    )}
                   </span>
                 </UnstyledLink>
               </li>
@@ -98,8 +119,9 @@ export default function Header({ large = false }: HeaderProps) {
 }
 
 const links = [
-  { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/blog', label: 'Blog' },
   { href: '/projects', label: 'Projects' },
+  { href: '/library', label: 'Library' },
+  { href: 'https://github.com/emackinnon1', label: 'GitHub', external: true },
 ];
