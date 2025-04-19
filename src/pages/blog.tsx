@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { InferGetStaticPropsType } from 'next';
 import * as React from 'react';
-import { HiCalendar, HiEye } from 'react-icons/hi';
+import { HiCalendar, HiEye, HiOutlineSearch } from 'react-icons/hi';
+import { InView } from 'react-intersection-observer';
 
 import { getFromSessionStorage } from '@/lib/helper.client';
 import { getTags, sortByDate, sortDateFn } from '@/lib/mdx.client';
@@ -10,7 +11,6 @@ import useInjectContentMeta from '@/hooks/useInjectContentMeta';
 import useLoaded from '@/hooks/useLoaded';
 
 import Accent from '@/components/Accent';
-// import Button from '@/components/buttons/Button';
 import BlogCard from '@/components/content/blog/BlogCard';
 import ContentPlaceholder from '@/components/content/ContentPlaceholder';
 import Tag, { SkipNavTag } from '@/components/content/Tag';
@@ -42,7 +42,6 @@ export default function IndexPage({
   const [sortOrder, setSortOrder] = React.useState<SortOption>(
     () => sortOptions[Number(getFromSessionStorage('blog-sort')) || 0]
   );
-  // const [isEnglish, setIsEnglish] = React.useState<boolean>(true);
   const isLoaded = useLoaded();
 
   const populatedPosts = useInjectContentMeta('blog', posts);
@@ -56,7 +55,7 @@ export default function IndexPage({
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
-  // const clearSearch = () => setSearch('');
+  //#endregion  //*======== Search ===========
 
   React.useEffect(() => {
     const results = populatedPosts.filter(
@@ -80,11 +79,9 @@ export default function IndexPage({
 
     setFilteredPosts(results);
   }, [search, sortOrder.id, populatedPosts]);
-  //#endregion  //*======== Search ===========
 
   //#region  //*=========== Post Language Splitter ===========
   const englishPosts = filteredPosts.filter((p) => !p.slug.startsWith('id-'));
-  // const bahasaPosts = filteredPosts.filter((p) => p.slug.startsWith('id-'));
   const currentPosts = englishPosts;
   //#endregion  //*======== Post Language Splitter ===========
 
@@ -123,67 +120,129 @@ export default function IndexPage({
       <main>
         <section className={clsx(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
-            <h1 className='text-3xl md:text-5xl' data-fade='0'>
-              <Accent>Blog</Accent>
-            </h1>
-            <p className='mt-2 text-gray-600 dark:text-gray-300' data-fade='1'>
-              Thoughts, musings and cogitations.
-            </p>
-            <StyledInput
-              data-fade='2'
-              className='mt-4'
-              placeholder='Search...'
-              onChange={handleSearch}
-              value={search}
-              type='text'
-            />
-            <div
-              className='mt-2 flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300'
-              data-fade='3'
-            >
-              <span className='font-medium'>Choose topic:</span>
-              <SkipNavTag>
-                {tags.map((tag) => (
-                  <Tag
-                    key={tag}
-                    onClick={() => toggleTag(tag)}
-                    disabled={!filteredTags.includes(tag)}
-                  >
-                    {checkTagged(tag) ? <Accent>{tag}</Accent> : tag}
-                  </Tag>
-                ))}
-              </SkipNavTag>
-            </div>
-            <div
-              className='relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between'
-              data-fade='4'
-            >
-              {/* <Button
-                onClick={() => {
-                  setIsEnglish((b) => !b);
-                  clearSearch();
-                }}
-                className='text-sm !font-medium'
-              >
-                Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
-              </Button> */}
-              <SortListbox
-                selected={sortOrder}
-                setSelected={setSortOrder}
-                options={sortOptions}
-              />
-            </div>
-            <ul
-              className='mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3'
-              data-fade='5'
-            >
-              {currentPosts.length > 0 ? (
-                currentPosts.map((post) => (
-                  <BlogCard
-                    key={post.slug}
-                    post={post}
-                    checkTagged={checkTagged}
+            <InView triggerOnce threshold={0.2}>
+              {({ inView, ref }) => (
+                <div
+                  ref={ref}
+                  className={clsx(
+                    'transition duration-500 delay-100',
+                    inView
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-10'
+                  )}
+                >
+                  <h1 className='text-3xl font-bold md:text-5xl'>
+                    <Accent>Blog</Accent>
+                  </h1>
+                  <p className='mt-2 text-gray-600 dark:text-gray-300'>
+                    Thoughts, musings and cogitations.
+                  </p>
+                </div>
+              )}
+            </InView>
+
+            <InView triggerOnce threshold={0.2}>
+              {({ inView, ref }) => (
+                <div
+                  ref={ref}
+                  className={clsx(
+                    'mt-8 transition duration-500 delay-200',
+                    inView
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-10'
+                  )}
+                >
+                  <div className='relative'>
+                    <div className='absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none'>
+                      <HiOutlineSearch className='text-gray-500 dark:text-gray-400' />
+                    </div>
+                    <StyledInput
+                      className='pl-10'
+                      placeholder='Search articles, tags...'
+                      onChange={handleSearch}
+                      value={search}
+                      type='text'
+                    />
+                  </div>
+                </div>
+              )}
+            </InView>
+
+            <InView triggerOnce threshold={0.2}>
+              {({ inView, ref }) => (
+                <div
+                  ref={ref}
+                  className={clsx(
+                    'mt-4 transition duration-500 delay-300',
+                    inView
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-10'
+                  )}
+                >
+                  <div className='flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300'>
+                    <span className='font-medium'>Choose topic:</span>
+                    <SkipNavTag>
+                      {tags.map((tag) => (
+                        <Tag
+                          key={tag}
+                          onClick={() => toggleTag(tag)}
+                          disabled={!filteredTags.includes(tag)}
+                        >
+                          {checkTagged(tag) ? <Accent>{tag}</Accent> : tag}
+                        </Tag>
+                      ))}
+                    </SkipNavTag>
+                  </div>
+                </div>
+              )}
+            </InView>
+
+            <InView triggerOnce threshold={0.2}>
+              {({ inView, ref }) => (
+                <div
+                  ref={ref}
+                  className={clsx(
+                    'relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between',
+                    'transition duration-500 delay-400',
+                    inView
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-10'
+                  )}
+                >
+                  <p className='text-sm font-medium'>
+                    {currentPosts.length} article
+                    {currentPosts.length > 1 ? 's' : ''}
+                  </p>
+                  <SortListbox
+                    selected={sortOrder}
+                    setSelected={setSortOrder}
+                    options={sortOptions}
                   />
+                </div>
+              )}
+            </InView>
+
+            <ul className='mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3'>
+              {currentPosts.length > 0 ? (
+                currentPosts.map((post, index) => (
+                  <InView threshold={0.2} triggerOnce key={post.slug}>
+                    {({ inView, ref }) => (
+                      <li
+                        ref={ref}
+                        className={clsx(
+                          'transition duration-500',
+                          inView
+                            ? 'opacity-100 translate-y-0'
+                            : 'opacity-0 translate-y-10',
+                          { 'delay-500': index < 3 },
+                          { 'delay-600': index >= 3 && index < 6 },
+                          { 'delay-700': index >= 6 }
+                        )}
+                      >
+                        <BlogCard post={post} checkTagged={checkTagged} />
+                      </li>
+                    )}
+                  </InView>
                 ))
               ) : (
                 <ContentPlaceholder />

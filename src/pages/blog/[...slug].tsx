@@ -107,17 +107,26 @@ export default function SingleBlogPage({
 
       <main>
         <ReloadDevtool />
-        <section className=''>
-          <div className='layout'>
-            <div className='pb-4 dark:border-gray-600'>
-              <Img
-                publicId={frontmatter.banner}
-                alt={`Photo from unsplash: ${frontmatter.banner}`}
-                width={1200}
-                height={(1400 * 2) / 3}
-                aspect={{ height: 2.7, width: 4 }}
-              />
+        <section>
+          {/* Banner Image with Fade Effect */}
+          <div className='relative'>
+            <div className='aspect-[1.8/1] w-full overflow-hidden layout'>
+              <div className='relative h-full w-full'>
+                <Img
+                  publicId={frontmatter.banner}
+                  alt={`Blog banner for ${frontmatter.title}`}
+                  className='object-cover object-center'
+                  preview={false}
+                  noStyle={true}
+                />
+              </div>
+            </div>
+            {/* Fade Overlay */}
+            <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-dark' />
+          </div>
 
+          <div className='layout relative z-10 -mt-20 pt-4'>
+            <div className='pb-4 dark:border-gray-600'>
               <h1 className='mt-4'>{frontmatter.title}</h1>
 
               <p className='mt-2 text-sm text-gray-600 dark:text-gray-300'>
