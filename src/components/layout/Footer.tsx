@@ -40,18 +40,6 @@ export default function Footer() {
 
         <p className='mt-8 text-sm text-gray-600 dark:text-gray-300'>
           © Elliot Mackinnon {new Date().getFullYear()}
-          {/* {feedbackFlag && (
-            <>
-              {' • '}
-              <FeedbackFish
-                projectId={process.env.NEXT_PUBLIC_FEEDBACK_FISH_ID || ''}
-              >
-                <button className='rounded-sm hover:text-gray-800 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:hover:text-gray-100'>
-                  Got any feedback?
-                </button>
-              </FeedbackFish>
-            </>
-          )} */}
         </p>
       </main>
     </footer>
@@ -142,21 +130,6 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
       text: 'Design',
       tooltip: 'website color palette',
     },
-    // {
-    //   href: 'https://clarence.link/docs',
-    //   text: 'Docs',
-    //   tooltip: 'Personal documentation about my best practices on development',
-    // },
-    // {
-    //   href: 'https://clarence.link/booknotes',
-    //   text: 'Book Notes',
-    //   tooltip: 'Note collection of books that I read',
-    // },
-    // {
-    //   href: 'https://clarence.link/starters',
-    //   text: 'Starter Templates',
-    //   tooltip: 'Starter that I build and use throughout my projects',
-    // },
     {
       href: 'https://us.umami.is/share/ESzFFWN1lFieRVkb/emackinnon.io',
       text: 'Analytics',
@@ -167,17 +140,11 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
       text: 'Statistics',
       tooltip: 'Blog, Projects, and Library Statistics',
     },
-    // {
-    //   href: '/guestbook',
-    //   text: 'Guestbook',
-    //   tooltip:
-    //     'Leave whatever you like to say—message, appreciation, suggestions',
-    // },
-    // {
-    //   href: '/subscribe',
-    //   text: 'Subscribe',
-    //   tooltip: 'Get an email whenever I post, no spam',
-    // },
+    {
+      href: '/subscribe',
+      text: 'Subscribe',
+      tooltip: 'Get an email whenever I post, no spam',
+    },
     {
       href: 'https://emackinnon.io/rss.xml',
       text: 'RSS',
