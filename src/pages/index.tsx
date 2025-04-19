@@ -47,21 +47,26 @@ export default function IndexPage({
           <article className='layout'>
             <div className='mt-4 flex flex-col justify-center md:mt-0'>
               <h2 className='text-2xl md:text-4xl 2xl:text-5xl' data-fade='1'>
+                Hi there, I'm{' '}
                 <Accent className='inline decoration-clone leading-snug dark:leading-none'>
                   Elliot Mackinnon
                 </Accent>
               </h2>
-              <h1
-                className='mt-10 text-4xl md:text-4xl 4xl:text-5xl'
+              <p
+                className='mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6 md:text-lg 2xl:text-xl'
                 data-fade='2'
               >
-                With great power comes a <Accent>huge electric bill</Accent>.
-              </h1>
+                I'm a <Accent>full-stack engineer</Accent> with a passion for
+                building beautiful and functional web applications. I specialize
+                in <Accent>Next.js</Accent>, <Accent>TypeScript</Accent>, and{' '}
+                <Accent>Tailwind CSS</Accent>.
+              </p>
               <p
                 className='mt-3 max-w-4xl text-gray-700 dark:text-gray-200 md:text-lg 2xl:text-xl'
                 data-fade='3'
               >
-                Full-time Tinkerer. Rest-of-the-time Developer.
+                Welcome to my corner of the internet. I share my projects,
+                thoughts, and experiences here.
               </p>
               <div data-fade='4' className='mt-8 flex flex-wrap gap-4'>
                 <div className='group relative'>
@@ -174,14 +179,12 @@ export default function IndexPage({
                 <div className='mt-8 h-full w-full md:mt-0'>
                   <h2 className='text-4xl md:text-6xl'>
                     <Accent className='inline decoration-clone leading-snug dark:leading-none'>
-                      I build stuff for the web
+                      I do a bunch of random stuff
                     </Accent>
                   </h2>
                   <p className='mt-4 text-base text-gray-600 dark:text-gray-300 md:text-lg'>
-                    I enjoy creating things that live on the internet, whether
-                    that be websites, applications, or anything in between. My
-                    goal is to always build products that provide pixel-perfect,
-                    enjoyable experiences.
+                    and sometimes I write about it. Check it out by heading over
+                    to the blog or project sections!
                   </p>
                   <ButtonLink href='/projects' className='mt-4'>
                     Check out my projects

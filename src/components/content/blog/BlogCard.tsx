@@ -6,7 +6,7 @@ import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 
 import Accent from '@/components/Accent';
 import Tag from '@/components/content/Tag';
-import Img from '@/components/images/Img';
+import AnimatedImage from '@/components/images/AnimatedImage';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 import { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
@@ -39,15 +39,17 @@ export default function BlogCard({
         href={`/blog/${post.slug}`}
       >
         <div className='relative'>
-          <Img
-            noStyle
-            className='pointer-events-none overflow-hidden rounded-t-md'
-            publicId={post.banner}
-            alt='Photo taken by me'
+          <AnimatedImage
+            src={
+              post.banner.startsWith('/images')
+                ? `https://folio-v2-images.s3.us-west-2.amazonaws.com${post.banner}`
+                : post.banner
+            }
+            alt={post.title || 'Blog post image'}
             width={1200}
             height={(1200 * 2) / 3}
-            aspect={{ height: 2.5, width: 5 }}
-            preview={false}
+            wrapperClassName='rounded-t-md rounded-b-none'
+            animationType='scale'
           />
           <div
             className={clsx(

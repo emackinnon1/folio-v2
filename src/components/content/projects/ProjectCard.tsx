@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import Img from '@/components/images/Img';
+import AnimatedImage from '@/components/images/AnimatedImage';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import TechIcons, { TechListType } from '@/components/TechIcons';
 
@@ -36,14 +36,19 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           <TechIcons techs={project.techs.split(',') as Array<TechListType>} />
         </div>
 
-        <Img
-          className='pointer-events-none mt-3 w-full'
-          publicId={project.banner}
-          alt={project.title}
-          width={1440}
-          height={792}
-          preview={false}
-        />
+        <div className='mt-3 w-full'>
+          <AnimatedImage
+            src={
+              project.banner.startsWith('/images')
+                ? `https://folio-v2-images.s3.us-west-2.amazonaws.com${project.banner}`
+                : project.banner
+            }
+            alt={project.title}
+            width={1440}
+            height={792}
+            animationType='both'
+          />
+        </div>
 
         <p className='animated-underline mt-2 inline-block font-medium'>
           See more →
