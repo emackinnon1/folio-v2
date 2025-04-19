@@ -254,7 +254,7 @@ const socials: Social[] = [
     id: 'Letterboxd',
     text: (
       <>
-        I am a huge cinephile Follow me on{' '}
+        I am a huge cinephile. Follow me on{' '}
         <Accent className='font-medium'>Letterboxd</Accent>!
       </>
     ),
