@@ -46,28 +46,22 @@ export default function IndexPage({
         >
           <article className='layout'>
             <div className='mt-4 flex flex-col justify-center md:mt-0'>
-              <h2 className='text-2xl md:text-4xl 2xl:text-5xl' data-fade='1'>
-                Hi there, I'm{' '}
-                <Accent className='inline decoration-clone leading-snug dark:leading-none'>
-                  Elliot Mackinnon
-                </Accent>
-              </h2>
-              <p
-                className='mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6 md:text-lg 2xl:text-xl'
+              <h1 className='text-5xl md:text-5xl 5xl:text-6xl' data-fade='1'>
+                <Accent>Elliot Mackinnon</Accent>
+              </h1>
+              <h6
+                className='mt-10 text-4xl md:text-4xl 4xl:text-5xl'
                 data-fade='2'
               >
-                I'm a <Accent>full-stack engineer</Accent> with a passion for
-                building beautiful and functional web applications. I specialize
-                in <Accent>Next.js</Accent>, <Accent>TypeScript</Accent>, and{' '}
-                <Accent>Tailwind CSS</Accent>.
-              </p>
+                With great power comes a <Accent>huge electric bill</Accent>.
+              </h6>
               <p
                 className='mt-3 max-w-4xl text-gray-700 dark:text-gray-200 md:text-lg 2xl:text-xl'
                 data-fade='3'
               >
-                Welcome to my corner of the internet. I share my projects,
-                thoughts, and experiences here.
+                Full-time Engineer. Rest-Of-The-Time Tinkerer.
               </p>
+
               <div data-fade='4' className='mt-8 flex flex-wrap gap-4'>
                 <div className='group relative'>
                   <div
@@ -213,7 +207,6 @@ export default function IndexPage({
             </section>
           )}
         </InView>
-
         <InView triggerOnce rootMargin='-40% 0px'>
           {({ ref, inView }) => (
             <section

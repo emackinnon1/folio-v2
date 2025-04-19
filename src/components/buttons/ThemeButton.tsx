@@ -14,17 +14,25 @@ export default function ThemeButton({ className, ...rest }: ThemeButtonProps) {
   return (
     <button
       className={clsx(
-        'rounded-md p-2 focus:outline-none md:p-2.5',
-        'border dark:border-gray-600',
-        'hover:border-primary-300 hover:text-primary-300 dark:hover:border-primary-300 dark:hover:text-primary-300',
-        'focus-visible:border-primary-300 focus-visible:text-primary-300 dark:focus-visible:border-primary-300 dark:focus-visible:text-primary-300',
-        'text-lg md:text-xl',
+        'rounded-md p-2 transition-colors duration-200',
+        'bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700',
+        'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+        'text-lg',
         className
       )}
       {...rest}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      aria-label='Toggle Dark Mode'
     >
-      {mounted ? <>{theme === 'light' ? <FiMoon /> : <FiSun />}</> : <FiSun />}
+      {mounted ? (
+        theme === 'light' ? (
+          <FiMoon className='animate-fade-in' />
+        ) : (
+          <FiSun className='animate-fade-in' />
+        )
+      ) : (
+        <FiSun />
+      )}
     </button>
   );
 }
