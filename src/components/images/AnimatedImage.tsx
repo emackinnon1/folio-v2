@@ -3,6 +3,7 @@ import Image, { ImageProps } from 'next/image';
 import * as React from 'react';
 
 type AnimatedImageProps = {
+  fill?: boolean;
   imgClassName?: string;
   imgStyle?: React.CSSProperties;
   wrapperClassName?: string;
