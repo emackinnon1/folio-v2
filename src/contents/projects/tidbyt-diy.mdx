@@ -1,0 +1,154 @@
+---
+title: 'DIY Tidbyt'
+description:
+  'Homemade tidbyt using adafruits LED matrix portal s3, a raspberry pi and a
+  32x64 LED matrix'
+category: 'DIY microcontroller projects'
+publishedAt: '2025-05-01'
+techs: 'tidbyt,esp32-s3,raspberry pi,node.js'
+banner: '/images/projects/lightning-lamp/lightning.jpg'
+---
+
+If you're familiar with [Tidbyt](https://tidbyt.com/), you know just how great
+of a product it is. The group of engineers who built the product are awesome, so
+it was unsurprising that another company
+[snapped them up](https://tidbyt.com/blogs/tidbyt/tidbyt-is-joining-modal?srsltid=AfmBOorQMUiwm4YpVtTMcSK7aZSDvUyKm0K4U_AHwvBODOPYDgzb2Xbo).
+
+However, that left me with the task of figuring out how to get a new Tidbyt.
+Luckily, I have been dabbling with a number of things that made the notion of
+making a DIY version not so implausible: microcontrollers, servers running on my
+local network, raspberry pis, and 3D printing. Im this post, I will go over how
+I was able to build a DIY version (albeit a less professional-looking, but still
+servicable one) of a Tidbyt. At the end, I'll share some future iterations that
+I would like to implement.
+
+## Supply list
+
+- [Adafruit Matrix Portal - CircuitPython Powered Internet Display](https://www.adafruit.com/product/4745)
+  - Get a HUB75 board and power supply from Adafruit while you are at it.
+- Raspberry pi: I used a Model 4b, but you might be able to use a 5. You'd need
+  to be sure that everything (mainly the pixlet binary) works on a 5
+
+- Optional: [3D printed case](http://thingiverse.com/thing:5377229) (you will
+  need to fit this to the mm pitch of your matrix).
+- Optional:
+  [3D printed stand](https://makerworld.com/en/models/934312-adjustable-picture-photo-frame-stand?from=search#profileId-898859):
+  you can use this to stand up the 3D-printed case
+
+## Code
+
+You'll need some code:
+
+- https://github.com/emackinnon1/axilla
+- https://github.com/emackinnon1/adafruit-matrixportal-s3-hdk
+
+## Setup of the Raspberry Pi
+
+### Initial setup
+
+You'll need to get the Raspberry Pi set up. I won't include the steps for that
+here but consult google for setting up an OS on a Raspberry Pi. I'd recommend
+the official Raspberry Pi OS since they've recently added Raspberry Pi Connect,
+which lets you connect to any of your Pis over an internet connection. This
+means you won't have to have a physical screen and keyboard connected all the
+time and can develop remotely.
+
+During the setup, be sure to set a hostname for you Raspberry Pi. This will make
+it easier when we use the Adafruit matrix portal to send requests for the webp
+images. If you're interested, here is a
+[Reddit thread](https://www.reddit.com/r/HomeNetworking/comments/vdc94s/raspberry_pi_and_local_host_name/)
+that talks about the Bonjour service allowing your Pi to be discoverable as
+`{hostname}.local` on your local network.
+
+### Install pixlet
+
+This should fully be explained in the repo, but you will need to install the
+[pixlet binary](https://tidbyt.dev/docs/build/installing-pixlet) using the
+linux_arm64 version. It was a while ago when I did this, so the details are a
+little fuzzy but I remember struggling with it a bit. That was also when pixlet
+was first being ported over to `linux_arm64` by the open source community, so it
+was less stable. I'll include a link to
+[instructions to build the binary](https://github.com/tidbyt/pixlet/blob/main/docs/BUILD.md),
+too.
+
+To directly install the binary, follow these steps. Before running these
+commands, I believe you will want to ensure that node, go, and libwebp are all
+installed on your Raspberry Pi. If you run into problems, there are a few
+[forum threads](https://discuss.tidbyt.com/t/pixlet-install-on-linux-raspberrypi/240)
+that might be helpful to poke around.
+
+```bash
+# Download the archive.
+curl -LO https://github.com/tidbyt/pixlet/releases/download/v0.34.0/pixlet_0.34.0_linux_arm64.tar.gz
+
+# Unpack the archive.
+tar -xvf pixlet_0.34.0_linux_amd64.tar.gz
+
+# Ensure the binary is executable.
+chmod +x ./pixlet
+
+# Move the binary into your path.
+sudo mv pixlet /usr/local/bin/pixlet
+```
+
+Run the following to be sure everything is working:
+
+```bash
+pixlet -h
+```
+
+### Installing and using axilla
+
+Once you get your Pi set up, you'll need to clone the axilla repo mentioned Code
+section above. I forked this over from btjones/axilla, which was a repo
+originally set up to run on Netlify. You'll have to excuse the state of that
+repo as I only made the changes necessary to set it up as a node server, run
+some scripts and serve local Starlink files. Feel free to fork it and clean it
+up if necessary.
+
+That original repo has steps to set it up and go the Netlify route (which is
+very low effort). However, if you're like me, you don't want to spend money to
+host a simple app like this if you can help it.
+
+As mentioned, I made a few changes from the original axilla repo. The main one
+being that I directly run files that are saved in the codebase instead of using
+the tactic of passing in a url of a Starlark app that's code is publicly
+available. You'll need to use the `fileName` param along with whatever Starlink
+params are needed for a particular app. Here is an example of generating the
+aurora applet when running on `localhost:3000`:
+
+`http://localhost:3000/?fileName=aurora&format=webp&output=image`
+
+Built-in applets follow a specific folder structure:
+
+```
+functions/axilla/assets/
+  applet_name/
+    applet_name.star
+```
+
+Each applet has its own folder inside the `assets` directory, and the Starlark
+file name must match the folder name. For example:
+
+```
+functions/axilla/assets/
+  digital_rain/
+    digital_rain.star
+  starfield/
+    starfield.star
+```
+
+When you use `fileName=digital_rain` in the URL, Axilla looks for the file at
+`functions/axilla/assets/digital_rain/digital_rain.star`.
+
+https://dev.to/bogdaaamn/run-your-nodejs-application-on-a-headless-raspberry-pi-4jnn
+
+- allow traffic on port 3000
+- install pm2
+- run ./start.sh
+
+## Set up LED matrix
+
+Clone adafruit hdk
+
+set up secrets.h file in /src
