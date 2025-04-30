@@ -179,12 +179,13 @@ a script to test this app out on a Mac which you can try out by running
 
 When you get around to downloading and running this on a Raspberry Pi, we'll
 have to get a few things out of the way first. Consult this
-[writeup](https://dev.to/bogdaaamn/run-your-nodejs-application-on-a-headless-raspberry-pi-4jnn)
-for more detailed information, but you'll want to open up the firewall settings
-to allow traffic on port 3000 and be sure `pm2` is installed globally.
+[tutorial](https://dev.to/bogdaaamn/run-your-nodejs-application-on-a-headless-raspberry-pi-4jnn)
+on running and serving a node.js app on your local network for more detailed
+information, but you'll want to open up the firewall settings to allow traffic
+on port 3000 and be sure `pm2` is installed globally.
 
-You should have node already installed from setting up pixlet, but now you will
-want to run the following:
+You should have node.js already installed from setting up pixlet, but now you
+will want to run the following:
 
 ```bash
 # Install PM2
@@ -194,8 +195,8 @@ sudo npm install -g pm2
 pm2 -v
 ```
 
-In the tutorial linked at the beginning of this section, the author shows you
-how add a script that will start this app when the Pi boots up.
+In the tutorial I linked above, the author shows you how to add a `pm2` script
+that will start this app when the Pi boots up.
 
 After that, we'll get port 3000 open to incoming traffic. The _right_ way to do
 that is with Nginx or another reverse proxy for security and other reasons, so
@@ -230,29 +231,28 @@ NODE_ENV=production ./start.sh
 ```
 
 Now, for the final step of the Pi setup, get on another computer and try to
-navigate to the app using a browser. Use your hostname that you set up way back
+navigate to the app using a browser. Use the hostname that you set up way back
 when you got the Pi's OS loaded, so something like this:
 
 ```
-http://hostname.local:3000?fileName=digital_rain&format=webp&output=image
+http://hostname.local:3000/?fileName=digital_rain&format=webp&output=image
 ```
 
 Hopefully, you should see a small webp image in your browser!
 
 Eventually, I plan on moving over to Nginx to eliminate the need to add the
-":3000" to the end of the hostname and route traffic to the Pi more efficiently,
-but for now I have ufw enabling ingress traffic. I'll probably have to reverse
-the steps I took to set up ufw, but that is a future worry.
+":3000" to the end of the hostname and to route traffic more efficiently, but
+for now I simply have ufw enabling ingress traffic.
 
 ## Set up LED matrix and Adafruit Matrix Portal
 
 We're going to need to set up the Adafruit Matrix Portal now. This is also a
 forked repo (it is the Hardware Development Kit from the brilliant engineers
-over at Tidbyt), so you'll have to excuse any ugly code. Like the axilla fork, I
-only changed the things that I need to get this up and running.
+over at Tidbyt), so you'll have to excuse any ugly code. Like the axilla repo
+fork, I only changed the things that I need to get this up and running.
 
 You'll need the Platform IO VS Code extension installed and a usb-c cord to
-connect to your machine. The repo's
+connect the Adafruit Matrix Portal to your machine. The repo's
 [README](https://github.com/emackinnon1/adafruit-matrixportal-s3-hdk) should
 have all the information you need to get going, but essentially you'll be
 cloning the repo down, setting up a `secrets.h` header file in the `/src` dir,
