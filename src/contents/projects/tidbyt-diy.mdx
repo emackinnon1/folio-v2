@@ -1,0 +1,343 @@
+---
+title: 'DIY Tidbyt'
+description:
+  'Homemade Tidbyt using an Adafruit LED matrix portal, a Raspberry Pi and a
+  HUB75 32x64 LED matrix'
+category: 'DIY microcontroller projects'
+publishedAt: '2025-05-01'
+techs: 'tidbyt,esp32-s3,raspberry pi,node.js,pixlet,platform io'
+banner: '/images/projects/tidbyt-diy/tidbyt-diy.gif'
+---
+
+<br />
+<br />
+If you're familiar with [Tidbyt](https://tidbyt.com/), you know just how great
+of a product it is. The group of engineers who built the product are awesome, so
+it was unsurprising that another company [snapped them
+up](https://tidbyt.com/blogs/tidbyt/tidbyt-is-joining-modal?srsltid=AfmBOorQMUiwm4YpVtTMcSK7aZSDvUyKm0K4U_AHwvBODOPYDgzb2Xbo).
+
+However, that left me with the task of figuring out how to get a new Tidbyt.
+Luckily, I have been dabbling with a number of things that made the notion of
+making a DIY version not so implausible: microcontrollers, servers running on my
+local network, Raspberry Pis, and 3D printing. Im this post, I will go over how
+I was able to build a DIY version (albeit a less professional-looking, but still
+servicable one) of a Tidbyt. At the end, I'll share some future iterations that
+I would like to implement.
+
+## Supply list
+
+- [Adafruit Matrix Portal - CircuitPython Powered Internet Display](https://www.adafruit.com/product/4745)
+  - Get a HUB75 board and power supply from Adafruit while you are at it.
+- Raspberry Pi: I used a Model 4b, but you might be able to use a 5. You'd need
+  to be sure that everything (mainly the pixlet binary) works on a 5.
+- Optional: [3D printed case](http://thingiverse.com/thing:5377229) which you
+  will need to fit to the mm pitch of your matrix, which you should be able to
+  do by measuring your matrix panel and scaling the object in your respective 3D
+  printing software.
+- Optional:
+  [3D printed stand](https://makerworld.com/en/models/934312-adjustable-picture-photo-frame-stand?from=search#profileId-898859)
+  that you can use this to stand up the 3D-printed case
+
+## Code
+
+You'll need some code:
+
+- [Axilla](https://github.com/emackinnon1/axilla)
+- [HDK](https://github.com/emackinnon1/adafruit-matrixportal-s3-hdk)
+
+## Setup of the Raspberry Pi
+
+### Initial setup
+
+You'll need to get the Raspberry Pi set up. I won't include the steps for that
+here but consult google for setting up an OS on a Raspberry Pi. I'd recommend
+the official Raspberry Pi OS since they've recently added Raspberry Pi Connect,
+which lets you connect to any of your Pis over an internet connection. This
+means you won't have to have a physical screen and keyboard connected all the
+time and can develop remotely.
+
+During the setup, be sure to set a hostname for you Raspberry Pi. This will make
+it easier when we use the Adafruit matrix portal to send requests for the webp
+images. If you're interested, here is a
+[Reddit thread](https://www.reddit.com/r/HomeNetworking/comments/vdc94s/raspberry_pi_and_local_host_name/)
+that talks about the service allowing your Pi to be discoverable as
+`{hostname}.local` on your local network.
+
+### Install pixlet
+
+This should fully be explained in the repo, but you will need to install the
+[pixlet binary](https://tidbyt.dev/docs/build/installing-pixlet) using the
+linux_arm64 version. It was a while ago when I did this, so the details are a
+little fuzzy but I remember struggling with it a bit. That was also when pixlet
+was first being ported over to `linux_arm64` by the open source community, so it
+was less stable. I'll include a link to
+[instructions to build the binary](https://github.com/tidbyt/pixlet/blob/main/docs/BUILD.md),
+too.
+
+To directly install the binary, follow these steps. Before running these
+commands, I believe you will want to ensure that node, go, and libwebp are all
+installed on your Raspberry Pi. If you run into problems, there are a few
+[forum threads](https://discuss.tidbyt.com/t/pixlet-install-on-linux-raspberrypi/240)
+that might be helpful to poke around.
+
+```bash
+# Download the archive.
+curl -LO https://github.com/tidbyt/pixlet/releases/download/v0.34.0/pixlet_0.34.0_linux_arm64.tar.gz
+
+# Unpack the archive.
+tar -xvf pixlet_0.34.0_linux_amd64.tar.gz
+
+# Ensure the binary is executable.
+chmod +x ./pixlet
+
+# Move the binary into your path.
+sudo mv pixlet /usr/local/bin/pixlet
+```
+
+Run the following to be sure everything is working, you should see a list of
+subcommands:
+
+```bash
+pixlet -h
+```
+
+### Axilla
+
+Once you get your Pi set up, you'll need to clone the axilla repo mentioned in
+the "Code" section at the top of the article with:
+
+```bash
+git clone https://github.com/emackinnon1/axilla
+```
+
+I forked this repo over from
+[btjones/axilla](https://github.com/btjones/axilla), which is a service
+originally set up to run on Netlify (and under the hood, AWS Lambda). You'll
+have to excuse the state of my repo as I only made the changes necessary to set
+it up as a node server, run some scripts and serve local Starlink files. Feel
+free to fork it and clean it up as you see fit.
+
+Btjones's original repo has steps to set it up and go the Netlify route (which
+is very low effort). However, if you're like me, you don't want to spend money
+to host a simple app like this if you can help it.
+
+As mentioned, I made a few changes from the original axilla repo. The main one
+being that I directly run files saved in the codebase instead of using the
+tactic of passing in a url of a Starlark app thats code is publicly available.
+You'll need to use the `fileName` param along with whatever Starlink params are
+needed for a particular app. Here is an example of generating the aurora applet
+when running on `localhost:3000`:
+
+```
+http://localhost:3000/?fileName=digital_rain&format=webp&output=image
+```
+
+These built-in applets running in my axilla version follow a specific folder
+structure:
+
+```
+functions/axilla/assets/
+  applet_name/
+    applet_name.star
+```
+
+Each applet has its own folder inside the `assets` directory, and the Starlark
+file name must match the folder name. For example:
+
+```
+functions/axilla/assets/
+  digital_rain/
+    digital_rain.star
+  starfield/
+    starfield.star
+```
+
+When you include the param `fileName=digital_rain` in the URL, Axilla looks for
+the file at `functions/axilla/assets/digital_rain/digital_rain.star`.
+
+The pixlet binary includes a few subcommands that allow you to conveniently test
+out individual apps locally. I have found that is the easiest to figure out what
+params to pass in as there is a nice little UI that includes every param option.
+Try it out yourself by running the following after you have an app saved in the
+repo.
+
+```bash
+pixlet serve pixlet serve functions/axilla/assets/digital_rain/digital_rain.star
+```
+
+Navigate to `http://127.0.0.1:8080` and you should see your app running. Fill
+out whatever parameters or options you want. You'll notice that these
+automatically get added to the url, which you can then copy for use in the HDK
+code later on. Alternatively, you can go into the actual Starlark code and
+hardcode whatever options you want (look for `schema.Option` in the code).
+
+### Running the app
+
+To get this app running, you can test it out by running the scripts. I included
+a script to test this app out on a Mac which you can try out by running
+`./macos-start.sh` in your terminal.
+
+When you get around to downloading and running this on a Raspberry Pi, we'll
+have to get a few things out of the way first. Consult this
+[tutorial](https://dev.to/bogdaaamn/run-your-nodejs-application-on-a-headless-raspberry-pi-4jnn)
+on running and serving a node.js app on your local network for more detailed
+information, but you'll want to open up the firewall settings to allow traffic
+on port 3000 and be sure `pm2` is installed globally.
+
+You should have node.js already installed from setting up pixlet, but now you
+will want to run the following:
+
+```bash
+# Install PM2
+sudo npm install -g pm2
+
+# Confirm the installation worked
+pm2 -v
+```
+
+In the tutorial I linked above, the author shows you how to add a `pm2` script
+that will start this app when the Pi boots up.
+
+After that, we'll get port 3000 open to incoming traffic. The _right_ way to do
+that is with Nginx or another reverse proxy for security and other reasons, so
+if you want to not be sloppy and lazy, follow the steps to set up
+[Nginx](https://dev.to/bogdaaamn/run-your-nodejs-application-on-a-headless-raspberry-pi-4jnn#:~:text=in%20your%20browser.-,1.%20Install%20NGINX,-I%20used%20Nginx)
+(under the section titled "1. Install NGINX"). Otherwise, you can quickly set up
+your Pi to allow traffic by running the following:
+
+```bash
+sudo apt-get install ufw
+
+sudo ufw allow ssh
+
+sudo ufw enable
+
+sudo ufw allow 3000
+```
+
+After that, run the start script (making sure to pass in the `NODE_ENV`) and
+confirm the `pm2` daemon is running.
+
+```bash
+# Run this
+NODE_ENV=production ./start.sh
+
+# You should see something like this in the script's output
+┌──────────┬────┬─────────┬──────┬─────┬────────┬─────────┬────────┬──────┬───────────┬──────┬──────────┐
+│ App name │ id │ version │ mode │ pid │ status │ restart │ uptime │ cpu  │ mem       │ user │ watching │
+├──────────┼────┼─────────┼──────┼─────┼────────┼─────────┼────────┼──────┼───────────┼──────┼──────────┤
+│ app      │ 0  │ N/A     │ fork │ 451 │ online │ 0       │ 96m    │ 0.2% │ 31.8 MB   │ pi   │ disabled │
+└──────────┴────┴─────────┴──────┴─────┴────────┴─────────┴────────┴──────┴───────────┴──────┴──────────┘
+```
+
+Now, for the final step of the Pi setup, get on another computer and try to
+navigate to the app using a browser. Use the hostname that you set up way back
+when you got the Pi's OS loaded, so something like this:
+
+```
+http://hostname.local:3000/?fileName=digital_rain&format=webp&output=image
+```
+
+Hopefully, you should see a small webp image in your browser!
+
+Eventually, I plan on moving over to Nginx to eliminate the need to add the
+":3000" to the end of the hostname and to route traffic more efficiently, but
+for now I simply have ufw enabling ingress traffic.
+
+## Set up LED matrix and Adafruit Matrix Portal
+
+We're going to need to set up the Adafruit Matrix Portal now. This is also a
+forked repo (it is the Hardware Development Kit from the brilliant engineers
+over at Tidbyt), so you'll have to excuse any ugly code. Like the axilla repo
+fork, I only changed the things that I need to get this up and running.
+
+You'll need the Platform IO VS Code extension installed and a usb-c cord to
+connect the Adafruit Matrix Portal to your machine. The repo's
+[README](https://github.com/emackinnon1/adafruit-matrixportal-s3-hdk) should
+have all the information you need to get going, but essentially you'll be
+cloning the repo down, setting up a `secrets.h` header file in the `/src` dir,
+and setting up some macros and const variables.
+
+Run the following in your terminal:
+
+```bash
+
+# Clone the repo to your local machine
+git clone https://github.com/emackinnon1/adafruit-matrixportal-s3-hdk
+
+# cd into the repo
+cd adafruit-matrixportal-s3-hdk
+
+# create the secrets file
+touch src/secrets.h
+```
+
+Inside the `secrets.h` file, add the following:
+
+```c
+#define TIDBYT_WIFI_SSID "your wifi ssid"
+#define TIDBYT_WIFI_PASSWORD "your wifi password"
+
+# This is the base url that we will send requests to
+const char* BASE_URL = "http://yourpihostname.local:3000";
+
+# These are going to be the apps that you have added to your axilla instance
+# These are a few of mine
+const char* APPLET_PARAMS[] = {
+  "/?fileName=date_progress&show_day=true&show_month=true&show_year=true&show_labels=true&show_values=true&color_year=%230ff&color_month=%230f0&color_day=%23f00&start_hour=0&start_minute=0&end_hour=0&end_minute=0",
+  "/?fileName=yearprogress&color=%2347a"
+}
+```
+
+When you have this all set up, connect the Matrix Portal to your HUB75 (you may
+want to consult
+[Adafruit's docs](https://learn.adafruit.com/adafruit-matrixportal-m4)) and use
+Platform IO to upload the code to the portal. You can either use the terminal:
+
+```bash
+pio run --environment adafruit_matrixportal_esp32s3 --target upload
+```
+
+Or use the Platform IO extension and click `Upload` (click Monitor to print the
+output of your code to the terminal):
+
+<Img
+  mdx
+  publicId='/images/projects/tidbyt-diy/platform-io-tidbyt.png'
+  alt='Platform IO menu'
+  width={700}
+  height={600}
+  aspect={{ width: 1, height: 1 }}
+/>
+
+With the axilla code running on your Pi, the HDK code running on Matrix Portal
+and both connected to the same network, you should see pixlet-generated images
+on the LED matrix!
+
+The last thing you can do is print out the case and stand (links are at the top
+of this article) if you have a 3D printer. Adafruit includes screws that you can
+use to attach the case to the LED matrix with.
+
+## Future improvements
+
+This project required learning some things that I wasn't all that familiar with:
+namely hosting/exposing apps on local networks, C language, and Platform IO.
+While I am happy to have things working for now, I would like to make some
+future improvements.
+
+Adding a database would open up a lot of functionality. I would like to build an
+endpoint returns the list of loaded apps, designate apps as "active" and
+"inactive", and allow the uploading and deleting of apps without having to
+manually upload code to the axilla repo and the HDK every time I want to add
+something new. Instead, I could simply manage my pixlet apps with a UI running
+on the Pi and subsequently alter the HDK code to request the list of current
+apps from the appropriate endpoint, displaying them afterward. If I go this
+route, I will also have to think about how I can maintain the params for each
+app, which will take some thinking.
+
+There is another application that runs pixlet apps:
+https://github.com/DouweM/pixbyt. It works very differently, leveraging Docker
+instead of node.js. It also integrates with the official Tidbyt platform to send
+apps to an real Tidbyt if you have one of those in your possession. This might
+offer a more seamless integration between DIY Tidbyts and real ones, but I have
+yet to explore how I could implement it.
