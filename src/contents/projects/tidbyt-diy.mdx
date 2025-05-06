@@ -14,21 +14,22 @@ banner: '/images/projects/tidbyt-diy/tidbyt-diy.gif'
 If you're familiar with [Tidbyt](https://tidbyt.com/), you know just how great
 of a product it is. The group of engineers who built the product are awesome, so
 it was unsurprising that another company
-[snapped them up](https://tidbyt.com/blogs/tidbyt/tidbyt-is-joining-modal?srsltid=AfmBOorQMUiwm4YpVtTMcSK7aZSDvUyKm0K4U_AHwvBODOPYDgzb2Xbo). 
+[snapped them up](https://tidbyt.com/blogs/tidbyt/tidbyt-is-joining-modal?srsltid=AfmBOorQMUiwm4YpVtTMcSK7aZSDvUyKm0K4U_AHwvBODOPYDgzb2Xbo).
 Unfortunately, this meant that the Tidbyt was discontinued indefinitely.
 
 This development left me with the task of figuring out how to get a new Tidbyt.
 Luckily, I have been dabbling with a number of things that made the notion of
 making a DIY version not so implausible: microcontrollers, servers running on my
 local network, Raspberry Pis, and 3D printing. In this post, I will go over how
-I was able to build a DIY version (albeit a less professional-looking, yet 
+I was able to build a DIY version (albeit a less professional-looking, yet
 servicable one) of a Tidbyt. At the end, I'll share some future iterations that
 I would like to implement.
 
 ## Supply list
 
 - [Adafruit Matrix Portal - CircuitPython Powered Internet Display](https://www.adafruit.com/product/4745)
-  - Get a HUB75 board and power supply from Adafruit while you are at it, you'll save yourself a few headaches with faulty products.
+  - Get a HUB75 board and power supply from Adafruit while you are at it, you'll
+    save yourself a few headaches with faulty products.
 - Raspberry Pi: I used a Model 4b, but you might be able to use a 5. You'd need
   to be sure that everything (mainly the pixlet binary) works on a 5.
 - Optional: [3D printed case](http://thingiverse.com/thing:5377229) which you
@@ -62,24 +63,25 @@ it easier when we use the Adafruit matrix portal to send requests for the webp
 images. If you're interested, here is a
 [Reddit thread](https://www.reddit.com/r/HomeNetworking/comments/vdc94s/raspberry_pi_and_local_host_name/)
 that talks about the service allowing your Pi to be discoverable as
-`{hostname}.local` on your local network. There are plenty of articles explaining how 
-to set this up on the interwebs, but you can also do it during the initial burning 
-of the OS image with Raspberry Pi Imager if you find the "Advanced Options" before burning.
+`{hostname}.local` on your local network. There are plenty of articles
+explaining how to set this up on the interwebs, but you can also do it during
+the initial burning of the OS image with Raspberry Pi Imager if you find the
+"Advanced Options" before burning.
 
 ### Install pixlet
 
 This should fully be explained in the repo, but you will need to install the
 [pixlet binary](https://tidbyt.dev/docs/build/installing-pixlet) using the
-`linux_arm64` version. It was a while ago when I did all this, so the details are a
-little fuzzy, but I remember struggling with it a bit. That was also when pixlet
-was first being ported over to `linux_arm64` by the open source community, so there 
-were a few wrinkles being worked out. I'll include a link to
+`linux_arm64` version. It was a while ago when I did all this, so the details
+are a little fuzzy, but I remember struggling with it a bit. That was also when
+pixlet was first being ported over to `linux_arm64` by the open source
+community, so there were a few wrinkles being worked out. I'll include a link to
 [instructions to build the binary](https://github.com/tidbyt/pixlet/blob/main/docs/BUILD.md),
 too.
 
-To directly install the binary, there are a few simple steps. Before running these
-commands, I believe you will want to ensure that node, go, and libwebp are all
-installed on your Raspberry Pi. If you run into problems, there are a few
+To directly install the binary, there are a few simple steps. Before running
+these commands, I believe you will want to ensure that node, go, and libwebp are
+all installed on your Raspberry Pi. If you run into problems, there are a few
 [forum threads](https://discuss.tidbyt.com/t/pixlet-install-on-linux-raspberrypi/240)
 that might be helpful to poke around.
 
@@ -124,11 +126,11 @@ Btjones's original repo has steps to set it up and go the Netlify route (which
 is very low effort). However, if you're like me, you don't want to spend money
 to host a simple app like this if you can help it.
 
-As mentioned, I made a few changes from the original axilla repo, with the main one
-being that I directly run files saved in the codebase instead of using the
+As mentioned, I made a few changes from the original axilla repo, with the main
+one being that I directly run files saved in the codebase instead of using the
 tactic of passing in a url of a Starlark app thats code is publicly available.
-You'll need to use the `fileName` param along with whatever params are
-needed for a particular app. Here is an example of generating the `digital_rain` applet
+You'll need to use the `fileName` param along with whatever params are needed
+for a particular app. Here is an example of generating the `digital_rain` applet
 when running on `localhost:3000`:
 
 ```
