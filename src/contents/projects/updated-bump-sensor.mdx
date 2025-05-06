@@ -1,0 +1,74 @@
+---
+title: 'Updated ESP32-based bump sensor'
+description: 'Updated ESP32-based bump sensor with SIM'
+category: 'DIY microcontroller projects'
+publishedAt: '2025-05-05'
+techs: 'c++,home assistant'
+banner: '/images/projects/updated-bump-sensor/button-circuit.png'
+link: 'https://github.com/emackinnon1/lilygo-bump-GPS'
+---
+
+<br />
+The previous iteration of this
+<a className='mt-2' href='/projects/updating-bump-sensor'>
+  project
+</a>
+was a _very_ DIY-looking project. I used some large electrical junction boxes and
+jerry rigged everything to my motorcycle.
+
+# Updates
+
+## Smaller form factor
+
+Rather than look like I am riding around with homemade explosives on my
+motorcycle, I cleaned up the form factor a lot more:
+
+<div className='flex items-center'>
+  <Img
+    mdx
+    publicId='/images/projects/updated-bump-sensor/bump-sensor-1.jpg'
+    alt='Modular bump sensor'
+    width={250}
+    height={350}
+  />
+  <Img
+    mdx
+    publicId='/images/projects/updated-bump-sensor/bump-sensor-2.jpg'
+    alt='Modular bump sensor'
+    width={250}
+    height={350}
+  />
+  <Img
+    mdx
+    publicId='/images/projects/updated-bump-sensor/bump-sensor-3.jpg'
+    alt='Modular bump sensor'
+    width={250}
+    height={350}
+  />
+</div>
+
+## Button to disable the MPU6050
+
+The other thing I did was attach an external button to disable the MPU6050,
+meaning I don't have to open up the box and flip the switch of the Lilygo
+anymore when I want to ride around (otherwise the MPU constantly goes off from
+the motion of the ride).
+
+Normally the INT drops to a logical 0 (low) to signal a change in motion or
+position. The new circuit uses a diode, a 10K resistor and a toggle button to
+hold the INT signal from the MPU to a logical 1 (high) when the circuit is
+closed, preventing the drop to a low.
+
+<Img
+  mdx
+  publicId='/images/projects/updated-bump-sensor/button-circuit.png'
+  alt='full assembly'
+  height={500}
+  width={800}
+/>
+
+I used some
+[metal brackets](https://www.amazon.com/dp/B09P5BS72Q?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_4&th=1)
+and some
+[clamps](https://www.amazon.com/dp/B08BC6DYJG?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_2&th=1)
+to attach the junction box with everything stuffed in it to the pannier rack.
