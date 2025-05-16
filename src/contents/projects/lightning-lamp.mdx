@@ -21,25 +21,26 @@ banner: '/images/projects/lightning-lamp/lightning.jpg'
 ## Explanation of project
 
 This project runs on a Raspberry Pi Pico sharing a serial connection with an
-Arduino Uno. The bones of this project were taken from another project that uses
-2 Arduino Unos, one running the lightning logic an IR remote and another running
-logic to receive the IR signal and send it along using I2C protocol. Having
-built this version first, I thought I might be able to improve on it and control
-this via MQTT and home assistant. I mostly left the physical structure and code
-from the Arduino Uno driving the led strip, but altered it slightly to read
-bytes from the pico on a Tx/Rx connection instead of another Uno via I2C
-connection.
+Arduino Uno. The bones of this project were taken from another tutorial that
+uses 2 Arduino Unos, one running the lightning animation logic and another
+running logic to receive the IR signal and pass it along via I2C protocol.
+Having built the 2 Arduino version first, I thought I might be able to improve
+on it and control this via MQTT and Home Assistant. I kept most of the code from
+the Arduino Uno driving the led strip, but altered it slightly to read bytes
+from the pico on a Tx/Rx connection instead of another Uno via I2C connection.
 
-The relevant project instructions for the original lightning cloud and such are
+The relevant project instructions for the original 2 Arduino lightning cloud and
+such are
 [here](https://www.makeuseof.com/tag/build-cloud-lamp-sound-reactive-lightning/);
 this is a great project to get started with if the micropython, MQTT, Home
 Assistant, etc portions aren't necessary for you. Either way, it's a good idea
 to read through those instructions so you can get an idea of how you want to
-create the cloud and some of the background info that I may have overlooked
-while writing this post. You could make this into a ceiling feature, a hanging
-lamp, or any number of other configurations. I also stuck some noodle LEDs on
-this to make a sort of "lightning" that flashes as you can see in the gif of the
-cloud at the top of this article.
+create the cloud and any of the background info that I may have overlooked while
+writing this post. You can, as I did, take this project in a few different
+directions: you could make this into a ceiling feature, a hanging lamp, or any
+number of other configurations. I also stuck some noodle LEDs on this to make a
+sort of "lightning" that flashes as you can see in the gif of the cloud at the
+top of this article.
 
 ## Materials list:
 
@@ -145,10 +146,10 @@ function to control the LED strip.
 
 One side note is that there is a
 [simple function](https://github.com/emackinnon1/lightning_cloud_with_display/blob/main/lightning_lamp.ino#L59-L62)
-that controls the LED "lightning" noodles if you're implementing that feature. I 
-controlled two LED noodles with one dual output mosfet, but I would go back and 
-control the two noodles separately, giving a bit more dynamism. This function is 
-where you can add more output pins for doing so. 
+that controls the LED "lightning" noodles if you're implementing that feature. I
+controlled two LED noodles with one dual output mosfet, but I would go back and
+control the two noodles separately, giving a bit more dynamism. This function is
+where you can add more output pins for doing so.
 
 ## Home Assistant Integration
 
