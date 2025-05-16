@@ -82,7 +82,7 @@ export default function AboutPage() {
                           height='1300'
                           alt='Portrait under greenhouse grow lights.'
                           preview={false}
-                          aspect={{ width: 1, height: 1 }}
+                          aspect={{ width: 170, height: 115 }}
                           title=' '
                         />
                         <div className='absolute inset-0 bg-gradient-to-tr from-primary-300/30 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100'></div>
