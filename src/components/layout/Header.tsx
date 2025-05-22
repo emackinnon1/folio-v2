@@ -191,16 +191,16 @@ export default function Header({ large = false }: HeaderProps) {
                     style={{
                       background:
                         href === '/about'
-                          ? 'radial-gradient(circle, rgba(168,85,247,0.25) 0%, rgba(147,51,234,0.12) 50%, rgba(126,34,206,0) 100%)'
+                          ? 'radial-gradient(circle, rgba(249,115,22,0.25) 0%, rgba(234,88,12,0.12) 50%, rgba(194,65,12,0) 100%)' // orange for About
                           : href === '/blog'
-                          ? 'radial-gradient(circle, rgba(34,197,94,0.25) 0%, rgba(22,163,74,0.12) 50%, rgba(21,128,61,0) 100%)'
+                          ? 'radial-gradient(circle, rgba(168,85,247,0.25) 0%, rgba(147,51,234,0.12) 50%, rgba(126,34,206,0) 100%)' // purple for Blog
                           : href === '/projects'
-                          ? 'radial-gradient(circle, rgba(239,68,68,0.25) 0%, rgba(220,38,38,0.12) 50%, rgba(185,28,28,0) 100%)'
+                          ? 'radial-gradient(circle, rgba(239,68,68,0.25) 0%, rgba(220,38,38,0.12) 50%, rgba(185,28,28,0) 100%)' // red for Projects
                           : href === '/library'
-                          ? 'radial-gradient(circle, rgba(234,179,8,0.25) 0%, rgba(202,138,4,0.12) 50%, rgba(161,98,7,0) 100%)'
+                          ? 'radial-gradient(circle, rgba(234,179,8,0.25) 0%, rgba(202,138,4,0.12) 50%, rgba(161,98,7,0) 100%)' // yellow for Library
                           : href === '/'
-                          ? 'radial-gradient(circle, rgba(59,130,246,0.25) 0%, rgba(37,99,235,0.12) 50%, rgba(29,78,216,0) 100%)'
-                          : 'radial-gradient(circle, rgba(124,58,237,0.25) 0%, rgba(109,40,217,0.12) 50%, rgba(91,33,182,0) 100%)',
+                          ? 'radial-gradient(circle, rgba(59,130,246,0.25) 0%, rgba(37,99,235,0.12) 50%, rgba(29,78,216,0) 100%)' // blue for Home
+                          : 'radial-gradient(circle, rgba(107,114,128,0.25) 0%, rgba(75,85,99,0.12) 50%, rgba(55,65,81,0) 100%)', // gray for GitHub/external
                       opacity: href === baseRoute ? 0.5 : 0,
                       borderRadius: '16px',
                     }}
@@ -349,16 +349,16 @@ export default function Header({ large = false }: HeaderProps) {
                       style={{
                         background:
                           href === '/about'
-                            ? 'radial-gradient(circle, rgba(168,85,247,0.4) 0%, rgba(147,51,234,0.2) 100%)'
+                            ? 'radial-gradient(circle, rgba(249,115,22,0.4) 0%, rgba(234,88,12,0.2) 100%)' // orange for About
                             : href === '/blog'
-                            ? 'radial-gradient(circle, rgba(34,197,94,0.4) 0%, rgba(22,163,74,0.2) 100%)'
+                            ? 'radial-gradient(circle, rgba(168,85,247,0.4) 0%, rgba(147,51,234,0.2) 100%)' // purple for Blog
                             : href === '/projects'
-                            ? 'radial-gradient(circle, rgba(239,68,68,0.4) 0%, rgba(220,38,38,0.2) 100%)'
+                            ? 'radial-gradient(circle, rgba(239,68,68,0.4) 0%, rgba(220,38,38,0.2) 100%)' // red for Projects
                             : href === '/library'
-                            ? 'radial-gradient(circle, rgba(234,179,8,0.4) 0%, rgba(202,138,4,0.2) 100%)'
+                            ? 'radial-gradient(circle, rgba(234,179,8,0.4) 0%, rgba(202,138,4,0.2) 100%)' // yellow for Library
                             : href === '/'
-                            ? 'radial-gradient(circle, rgba(59,130,246,0.4) 0%, rgba(37,99,235,0.2) 100%)'
-                            : 'radial-gradient(circle, rgba(124,58,237,0.4) 0%, rgba(109,40,217,0.2) 100%)',
+                            ? 'radial-gradient(circle, rgba(59,130,246,0.4) 0%, rgba(37,99,235,0.2) 100%)' // blue for Home
+                            : 'radial-gradient(circle, rgba(107,114,128,0.4) 0%, rgba(75,85,99,0.2) 100%)', // gray for GitHub/external
                         opacity: href === baseRoute ? 0.4 : 0,
                       }}
                     />
@@ -417,13 +417,13 @@ const links = [
     href: '/about',
     label: 'About',
     icon: <User className='h-5 w-5' />,
-    iconColor: 'group-hover:text-purple-500',
+    iconColor: 'group-hover:text-orange-500',
   },
   {
     href: '/blog',
     label: 'Blog',
     icon: <Newspaper className='h-5 w-5' />,
-    iconColor: 'group-hover:text-green-500',
+    iconColor: 'group-hover:text-purple-500',
   },
   {
     href: '/projects',
