@@ -417,13 +417,13 @@ const links = [
     href: '/about',
     label: 'About',
     icon: <User className='h-5 w-5' />,
-    iconColor: 'group-hover:text-purple-500',
+    iconColor: 'group-hover:text-orange-500',
   },
   {
     href: '/blog',
     label: 'Blog',
     icon: <Newspaper className='h-5 w-5' />,
-    iconColor: 'group-hover:text-green-500',
+    iconColor: 'group-hover:text-purple-500',
   },
   {
     href: '/projects',
