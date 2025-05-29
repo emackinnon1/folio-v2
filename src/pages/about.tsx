@@ -195,6 +195,22 @@ export default function AboutPage() {
                       </p>
                     )}
                   </InView>
+                  <InView triggerOnce threshold={0.2}>
+                    {({ inView, ref }) => (
+                      <p
+                        ref={ref}
+                        className={clsx(
+                          'transition duration-500 delay-700',
+                          inView
+                            ? 'opacity-100 translate-y-0'
+                            : 'opacity-0 translate-y-10'
+                        )}
+                      >
+                        Check out what I have done so far under "Career Journey"
+                        at the bottom of this page!
+                      </p>
+                    )}
+                  </InView>
                 </article>
 
                 <InView triggerOnce threshold={0.2}>
