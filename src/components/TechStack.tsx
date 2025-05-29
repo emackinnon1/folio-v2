@@ -4,6 +4,7 @@ import {
   SiAmazonaws,
   SiGit,
   SiGithub,
+  SiGooglecloud,
   SiGraphql,
   SiJavascript,
   SiNextdotjs,
@@ -11,6 +12,8 @@ import {
   SiPostgresql,
   SiPython,
   SiReact,
+  SiRuby,
+  SiRubyonrails,
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si';
@@ -60,6 +63,36 @@ const stacks = [
     ),
   },
   {
+    id: 'python',
+    icon: SiPython,
+    tooltip: (
+      <>
+        <CustomLink href='https://www.python.org/'>Python</CustomLink>, my
+        favored backend language. I don't even like snakes but... here we are.
+      </>
+    ),
+  },
+  {
+    id: 'ruby',
+    icon: SiRuby,
+    tooltip: (
+      <>
+        <CustomLink href='https://www.ruby-lang.org/en/'>Ruby</CustomLink> an
+        awesome, developer-friendly language.
+      </>
+    ),
+  },
+  {
+    id: 'rubyOnRails',
+    icon: SiRubyonrails,
+    tooltip: (
+      <>
+        <CustomLink href='https://rubyonrails.org/'>Ruby on Rails</CustomLink>{' '}
+        makes spinning up a web service easier than gem hunting in crystal shop.
+      </>
+    ),
+  },
+  {
     id: 'nodejs',
     icon: SiNodedotjs,
     tooltip: (
@@ -103,16 +136,6 @@ const stacks = [
           extension
         </CustomLink>
         .
-      </>
-    ),
-  },
-  {
-    id: 'python',
-    icon: SiPython,
-    tooltip: (
-      <>
-        <CustomLink href='https://www.python.org/'>Python</CustomLink>, my
-        favored backend language. I don't even like snakes but here we are.
       </>
     ),
   },
@@ -167,6 +190,16 @@ const stacks = [
         <CustomLink href='https://github.com/'>GitHub</CustomLink>, "Git is the
         filing system, GitHub is the best file cabinet", as my grandmother
         always used to say.
+      </>
+    ),
+  },
+  {
+    id: 'GCP',
+    icon: SiGooglecloud,
+    tooltip: (
+      <>
+        <CustomLink href='https://cloud.google.com/'>GCP</CustomLink> or Google
+        Cloud is a solid competitor for cloud hosting.
       </>
     ),
   },

@@ -139,15 +139,15 @@ export default function AboutPage() {
                             : 'opacity-0 translate-y-10'
                         )}
                       >
-                        I grew up in Atlanta, GA, and stayed there through my
-                        late twenties—except for a brief detour into the
-                        sun-baked beauty of West Texas. I studied what we'd now
-                        call "neuropsych" at Georgia State University (a fancy
-                        way of saying a mix of psychology and neuroscience)
-                        before bouncing between a few sales jobs. Eventually, I
-                        decided life needed a plot twist. So, I packed my bags
-                        and moved to Munich, Germany, where I lived just a
-                        well-aimed beer stein away from the Oktoberfest grounds.
+                        I was bread and buttered in Atlanta, GA. I studied what
+                        is now termed "neuropsych" at Georgia State University.
+                        So yes, I can read minds. I kid, it is a fancy way of
+                        saying I took a bunch of psychology and neuroscience
+                        classes. After college, I bounced around a few sales
+                        jobs but eventually, I decided life needed a plot twist:
+                        I packed my bags and moved to Munich, Germany, so close
+                        to the Oktoberfest grounds that I could throw a beer
+                        glass and hit one of those famed, giant tents.
                       </p>
                     )}
                   </InView>
