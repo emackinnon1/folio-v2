@@ -44,9 +44,9 @@ export default function AboutPage() {
             <div className='mt-12 grid grid-cols-1 gap-10 md:grid-cols-3'>
               {/* Column 1 - Image with animation */}
               <div>
-                <h1 className='mb-5 text-gray-700 dark:text-gray-300'>
+                <h2 className='mb-5 text-gray-700 dark:text-gray-300'>
                   <Accent>Who am I?</Accent>
-                </h1>
+                </h2>
                 <InView triggerOnce threshold={0.2}>
                   {({ inView, ref }) => (
                     <div
