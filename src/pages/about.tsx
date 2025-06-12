@@ -44,6 +44,9 @@ export default function AboutPage() {
             <div className='mt-12 grid grid-cols-1 gap-10 md:grid-cols-3'>
               {/* Column 1 - Image with animation */}
               <div>
+                <h1 className='mb-5 text-gray-700 dark:text-gray-300'>
+                  <Accent>Who am I?</Accent>
+                </h1>
                 <InView triggerOnce threshold={0.2}>
                   {({ inView, ref }) => (
                     <div
@@ -86,7 +89,7 @@ export default function AboutPage() {
                           : 'opacity-0 translate-y-10'
                       )}
                     >
-                      <h3 className='text-xl font-bold md:text-2xl'>
+                      <h3 className='md:text-2xl'>
                         <Accent>Tech Stack</Accent>
                       </h3>
                       <div className='mt-4 rounded-lg border border-gray-200 bg-gray-50 p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800/50'>
@@ -212,8 +215,7 @@ export default function AboutPage() {
                             : 'opacity-0 translate-y-10'
                         )}
                       >
-                        Scroll down to "Career Journey" at the bottom of this
-                        page to see my experience!
+                        Scroll down to "Career Journey" to see my experience!
                       </p>
                     )}
                   </InView>
