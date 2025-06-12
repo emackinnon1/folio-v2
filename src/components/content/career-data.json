@@ -7,10 +7,15 @@
     "link": "https://calendly.com/",
     "description": {
       "responsibilities": [
-        "Build the internal services that integrated with providers like Outlook and Google."
+        "Managed and processed critical user data from external calendar providers such as Google and Outlook.",
+        "Updated data integral ingestion pipelines to evolve with external providers and customers.",
+        "Extracted monolithic services into their own microservices as part of an org-wide effort.",
+        "Revitalized our testing in the absence of a dedicated QA team member, built out Postman test suites, smoke tests and observability for critical APIs.",
+        "Built and maintained internal tooling to manage and track feature flag enablement and deprecations, reducing code complexity and bloat."
       ],
       "accomplishments": [
-        "Extracted monolithic services to reduce dev cycle time"
+        "Built tooling to manage feature flag tracking as part of our CI/CD pipeline to reduce code bloat",
+        "Moved domain services to an event driven queue-based design, improving elasticity and development cycle time"
       ]
     }
   },

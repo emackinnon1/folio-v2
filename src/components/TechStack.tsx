@@ -23,23 +23,24 @@ import Tooltip from '@/components/Tooltip';
 
 export default function TechStack() {
   return (
-    <div className='flex space-x-2 md:space-x-4 flex-wrap'>
+    <div className='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6'>
       {stacks.map((tech) => (
         <Tooltip key={tech.id} tipChildren={<p>{tech.tooltip}</p>}>
-          <tech.icon
-            key={tech.id}
-            className={clsx(
-              'h-8 w-8 md:h-10 md:w-10 mt-2',
-              'text-gray-600 hover:text-primary-300 dark:text-gray-200 dark:hover:text-primary-300',
-              'transition-colors'
-            )}
-          />
+          <div className='flex justify-center items-center'>
+            <tech.icon
+              className={clsx(
+                'h-8 w-8 md:h-10 md:w-10',
+                'text-gray-600 hover:text-primary-300 dark:text-gray-200 dark:hover:text-primary-300',
+                'transition-colors'
+              )}
+            />
+          </div>
         </Tooltip>
       ))}
     </div>
   );
 }
-// TODO: change out links and tooltips
+
 const stacks = [
   {
     id: 'javascript',
@@ -47,7 +48,7 @@ const stacks = [
     tooltip: (
       <>
         <CustomLink href='https://www.javascript.com/'>JavaScript</CustomLink>,
-        everyone's web developer's first love.
+        every web developer's first love.
       </>
     ),
   },
@@ -56,9 +57,8 @@ const stacks = [
     icon: SiNextdotjs,
     tooltip: (
       <>
-        <CustomLink href='https://nextjs.org'>Next.js</CustomLink>, currently my
-        go-to framework because of the static generation, dynamic paths, and
-        built-in API. <em>ps: this site was built on it.</em>
+        <CustomLink href='https://nextjs.org'>Next.js</CustomLink>, it's the
+        only time I'll say it: I love slugs!
       </>
     ),
   },
@@ -107,8 +107,8 @@ const stacks = [
     icon: SiReact,
     tooltip: (
       <>
-        <CustomLink href='https://reactjs.org/'>React</CustomLink>, underlying
-        library of Next.js. It's the only time I'll say it: I love slugs!
+        <CustomLink href='https://reactjs.org/'>React</CustomLink>: who{' '}
+        <em>doesn't</em> know it these days?
       </>
     ),
   },
@@ -147,7 +147,7 @@ const stacks = [
         <CustomLink href='https://aws.amazon.com/'>
           Amazon Web Services
         </CustomLink>
-        , currently my preferred serverless ecosystem. They offer so much!
+        , currently my preferred cloud ecosystem. They offer so much!
       </>
     ),
   },
