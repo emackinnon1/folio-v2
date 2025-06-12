@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { motion, Variants } from 'framer-motion';
+import { motion, Transition, Variants } from 'framer-motion';
 import {
   Book,
   GitPullRequestArrowIcon,
@@ -95,7 +95,7 @@ export default function Header({ large = false }: HeaderProps) {
     },
   };
 
-  const sharedTransition = {
+  const sharedTransition: Transition = {
     type: 'spring',
     stiffness: 100,
     damping: 20,
