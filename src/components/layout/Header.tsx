@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import {
   Book,
   GitPullRequestArrowIcon,
@@ -84,13 +84,13 @@ export default function Header({ large = false }: HeaderProps) {
     },
   };
 
-  const navGlowVariants = {
+  const navGlowVariants: Variants = {
     initial: { opacity: 0 },
     hover: {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: [0.4, 0, 0.2, 1],
+        ease: 'easeInOut',
       },
     },
   };
