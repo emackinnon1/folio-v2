@@ -12,7 +12,7 @@ import { InView } from 'react-intersection-observer';
 import Accent from '@/components/Accent';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
-import data from './data.json';
+import data from './career-data.json';
 
 const Timeline = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -26,11 +26,50 @@ const Timeline = () => {
   };
 
   return (
-    <section className='py-20'>
+    <section>
       <div className='layout'>
-        <h2 className='mb-8 text-2xl font-bold md:text-4xl'>
-          <Accent>Career Journey</Accent>
-        </h2>
+        <div className='flex flex-col md:flex-row md:items-center md:justify-between mb-8'>
+          <h2 className='text-2xl font-bold md:text-4xl'>
+            <Accent>Career Journey</Accent>
+          </h2>
+
+          <InView triggerOnce threshold={0.2}>
+            {({ inView, ref }) => (
+              <div
+                ref={ref}
+                className={clsx(
+                  'mt-4 md:mt-0 transition duration-500 delay-750',
+                  inView
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-10'
+                )}
+              >
+                <a
+                  href='https://folio-v2-images.s3.us-west-2.amazonaws.com/resources/ResumeElliotMackinnon.pdf'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='inline-flex items-center px-4 py-2 bg-primary-300 text-white rounded-md hover:bg-primary-500 hover:shadow-xl transition-colors shadow-sm'
+                >
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='h-5 w-5 mr-2'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M12 4v12m0 0l-4-4m4 4l4-4M7 20h10'
+                    />
+                  </svg>
+                  Download Full Resume
+                </a>
+              </div>
+            )}
+          </InView>
+        </div>
 
         <div className='relative'>
           {/* Timeline line */}
@@ -105,12 +144,12 @@ const Timeline = () => {
                               toggleExpand(`${item.company}-${index}`)
                             }
                             className={clsx(
-                              'rounded-full p-2 text-gray-400 transition-transform hover:bg-gray-100 hover:text-primary-500 dark:hover:bg-gray-800 dark:hover:text-primary-300',
+                              'rounded-full p-4 text-gray-400 transition-transform hover:bg-gray-100 hover:text-primary-500 dark:hover:bg-gray-800 dark:hover:text-primary-300',
                               expandedId === `${item.company}-${index}` &&
                                 'rotate-180'
                             )}
                           >
-                            <HiChevronDown />
+                            <HiChevronDown className='h-5 w-5 md:h-6 md:w-6' />
                           </button>
                         )}
                       </div>

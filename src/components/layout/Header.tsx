@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { motion } from 'framer-motion';
+import { motion, Transition, Variants } from 'framer-motion';
 import {
   Book,
   GitPullRequestArrowIcon,
@@ -62,17 +62,17 @@ export default function Header({ large = false }: HeaderProps) {
   };
 
   // Animation variants from NavBar component
-  const itemVariants = {
+  const itemVariants: Variants = {
     initial: { rotateX: 0, opacity: 1 },
     hover: { rotateX: -90, opacity: 0 },
   };
 
-  const backVariants = {
+  const backVariants: Variants = {
     initial: { rotateX: 90, opacity: 0 },
     hover: { rotateX: 0, opacity: 1 },
   };
 
-  const glowVariants = {
+  const glowVariants: Variants = {
     initial: { opacity: 0, scale: 0.8 },
     hover: {
       opacity: 1,
@@ -84,18 +84,18 @@ export default function Header({ large = false }: HeaderProps) {
     },
   };
 
-  const navGlowVariants = {
+  const navGlowVariants: Variants = {
     initial: { opacity: 0 },
     hover: {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: [0.4, 0, 0.2, 1],
+        ease: 'easeInOut',
       },
     },
   };
 
-  const sharedTransition = {
+  const sharedTransition: Transition = {
     type: 'spring',
     stiffness: 100,
     damping: 20,

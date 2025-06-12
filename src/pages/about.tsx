@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import * as React from 'react';
+import { IoArrowDownOutline } from 'react-icons/io5';
 import { InView } from 'react-intersection-observer';
 
 import useLoaded from '@/hooks/useLoaded';
@@ -8,6 +9,7 @@ import Accent from '@/components/Accent';
 import Timeline from '@/components/content/Timeline';
 import Img from '@/components/images/Img';
 import Layout from '@/components/layout/Layout';
+import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import TechStack from '@/components/TechStack';
 
@@ -36,65 +38,72 @@ export default function AboutPage() {
 
       <main>
         <section
-          className={clsx('min-h-main py-20', isLoaded && 'fade-in-start')}
+          className={clsx('min-h-main py-1', isLoaded && 'fade-in-start')}
         >
           <div className='layout'>
-            <InView triggerOnce threshold={0.2}>
-              {({ inView, ref }) => (
-                <div
-                  ref={ref}
-                  className={clsx(
-                    'transition duration-500 delay-100',
-                    inView
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-10'
-                  )}
-                >
-                  <h1 className='text-3xl font-bold md:text-5xl'>
-                    <Accent>Elliot Mackinnon</Accent>
-                  </h1>
-                  <h2 className='mt-1 text-xl text-gray-700 dark:text-gray-300 md:text-2xl'>
-                    Who am I?
-                  </h2>
-                </div>
-              )}
-            </InView>
-
-            <div className='mt-12 grid grid-cols-1 gap-12 md:grid-cols-3'>
+            <div className='mt-12 grid grid-cols-1 gap-10 md:grid-cols-3'>
               {/* Column 1 - Image with animation */}
-              <InView triggerOnce threshold={0.2}>
-                {({ inView, ref }) => (
-                  <div
-                    ref={ref}
-                    className={clsx(
-                      'transition duration-500 delay-200',
-                      inView
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 translate-y-10'
-                    )}
-                  >
-                    <div className='overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl group'>
-                      <div className='relative'>
-                        <Img
-                          className='w-full transform transition duration-300 group-hover:scale-[1.03]'
-                          publicId='https://folio-v2-images.s3.us-west-2.amazonaws.com/images/portrait.jpg'
-                          width='1700'
-                          height='1300'
-                          alt='Portrait under greenhouse grow lights.'
-                          preview={false}
-                          aspect={{ width: 170, height: 115 }}
-                          title=' '
-                        />
-                        <div className='absolute inset-0 bg-gradient-to-tr from-primary-300/30 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100'></div>
+              <div>
+                <h2 className='mb-5 text-gray-700 dark:text-gray-300'>
+                  <Accent>Who am I?</Accent>
+                </h2>
+                <InView triggerOnce threshold={0.2}>
+                  {({ inView, ref }) => (
+                    <div
+                      ref={ref}
+                      className={clsx(
+                        'transition duration-500 delay-200',
+                        inView
+                          ? 'opacity-100 translate-y-0'
+                          : 'opacity-0 translate-y-10'
+                      )}
+                    >
+                      <div className='overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl group'>
+                        <div className='relative'>
+                          <Img
+                            className='w-full transform transition duration-300 group-hover:scale-[1.03]'
+                            publicId='https://folio-v2-images.s3.us-west-2.amazonaws.com/images/portrait.jpg'
+                            width='1700'
+                            height='1300'
+                            alt='Portrait under greenhouse grow lights.'
+                            preview={false}
+                            aspect={{ width: 170, height: 115 }}
+                            title=' '
+                          />
+                          <div className='absolute inset-0 bg-gradient-to-tr from-primary-300/30 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100'></div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </InView>
+                  )}
+                </InView>
+
+                {/* TechStack moved here - under the image */}
+                <InView triggerOnce threshold={0.2}>
+                  {({ inView, ref }) => (
+                    <div
+                      ref={ref}
+                      className={clsx(
+                        'mt-8 transition duration-500 delay-800',
+                        inView
+                          ? 'opacity-100 translate-y-0'
+                          : 'opacity-0 translate-y-10'
+                      )}
+                    >
+                      <h3 className='md:text-2xl'>
+                        <Accent>Tech Stack</Accent>
+                      </h3>
+                      <div className='mt-4 rounded-lg border border-gray-200 bg-gray-50 p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800/50'>
+                        <TechStack />
+                      </div>
+                    </div>
+                  )}
+                </InView>
+              </div>
 
               {/* Column 2-3 - Text content with animations */}
               <div className='md:col-span-2'>
                 <article className='prose max-w-none dark:prose-invert'>
+                  {/* Your existing text content remains unchanged */}
                   <InView triggerOnce threshold={0.2}>
                     {({ inView, ref }) => (
                       <p
@@ -206,63 +215,36 @@ export default function AboutPage() {
                             : 'opacity-0 translate-y-10'
                         )}
                       >
-                        Check out what I have done so far under "Career Journey"
-                        at the bottom of this page!
+                        Scroll down to "Career Journey" to see my experience!
                       </p>
                     )}
                   </InView>
                 </article>
-
-                <InView triggerOnce threshold={0.2}>
-                  {({ inView, ref }) => (
-                    <div
-                      ref={ref}
-                      className={clsx(
-                        'mt-12 transition duration-500 delay-800',
-                        inView
-                          ? 'opacity-100 translate-y-0'
-                          : 'opacity-0 translate-y-10'
-                      )}
-                    >
-                      <h3 className='text-xl font-bold md:text-2xl'>
-                        <Accent>Tech Stack</Accent>
-                      </h3>
-                      <div className='mt-4 rounded-lg border border-gray-200 bg-gray-50 p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800/50'>
-                        <TechStack />
-                      </div>
-                    </div>
+                <UnstyledLink
+                  href='#timeline'
+                  className={clsx(
+                    'absolute bottom-2 left-1/2 -translate-x-1/2 md:bottom-10',
+                    'cursor-pointer rounded-md transition-colors',
+                    'hover:text-primary-300 focus-visible:text-primary-300'
                   )}
-                </InView>
-
-                <InView triggerOnce threshold={0.2}>
-                  {({ inView, ref }) => (
-                    <div
-                      ref={ref}
-                      className={clsx(
-                        'mt-8 transition duration-500 delay-900',
-                        inView
-                          ? 'opacity-100 translate-y-0'
-                          : 'opacity-0 translate-y-10'
-                      )}
-                    >
-                      <h4 className='text-lg font-semibold md:text-xl'>
-                        Currently working on:
-                      </h4>
-                      <div className='mt-2 rounded-lg bg-gradient-to-tr from-primary-200/20 via-primary-300/20 to-primary-400/20 p-4 dark:from-primary-200/10 dark:via-primary-300/10 dark:to-primary-400/10'>
-                        <p className='text-gray-800 dark:text-gray-200'>
-                          Currently I am learning firmware and working on
-                          mastering microcontrollers in C and C++!
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </InView>
+                >
+                  <IoArrowDownOutline className='h-8 w-8 animate-bounce md:h-10 md:w-10' />
+                </UnstyledLink>
               </div>
             </div>
           </div>
         </section>
-
-        <Timeline />
+        <InView triggerOnce rootMargin='-40% 0px'>
+          {({ ref, inView }) => (
+            <section
+              ref={ref}
+              id='timeline'
+              className={clsx(inView && 'fade-in-start')}
+            >
+              <Timeline />
+            </section>
+          )}
+        </InView>
       </main>
     </Layout>
   );
