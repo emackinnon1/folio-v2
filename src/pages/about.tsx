@@ -243,9 +243,6 @@ export default function AboutPage() {
             </section>
           )}
         </InView>
-        <section id='timeline'>
-          <Timeline />
-        </section>
       </main>
     </Layout>
   );
