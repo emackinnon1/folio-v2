@@ -144,12 +144,12 @@ const Timeline = () => {
                               toggleExpand(`${item.company}-${index}`)
                             }
                             className={clsx(
-                              'rounded-full p-2 text-gray-400 transition-transform hover:bg-gray-100 hover:text-primary-500 dark:hover:bg-gray-800 dark:hover:text-primary-300',
+                              'rounded-full p-4 text-gray-400 transition-transform hover:bg-gray-100 hover:text-primary-500 dark:hover:bg-gray-800 dark:hover:text-primary-300',
                               expandedId === `${item.company}-${index}` &&
                                 'rotate-180'
                             )}
                           >
-                            <HiChevronDown />
+                            <HiChevronDown className='h-5 w-5 md:h-6 md:w-6' />
                           </button>
                         )}
                       </div>
