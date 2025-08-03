@@ -186,6 +186,11 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
       text: 'RSS',
       tooltip: 'Add emackinnon.io blog to your feeds',
     },
+    {
+      href: '/privacy',
+      text: 'Privacy',
+      tooltip: 'Privacy policies for applications and services',
+    },
   ];
 
 type Social = {
